@@ -1,17 +1,11 @@
 package com.corridor9design.mfdtailboard;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.app.Fragment;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.corridor9design.mfdtailboard.calculator.Calculator;
@@ -33,7 +27,8 @@ public class MFDTailboard extends Activity implements
                     .add(R.id.MFDTailboardContainer, new FragmentHandler())
                     .commit();
         }
-
+        //TODO: Configure screen orientation for tablets, individual fragments, and menu operations
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     }
 
 
