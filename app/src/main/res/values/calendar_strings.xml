@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="next_scheduled_label">Next Scheduled</string>
+    <string name="remaining_label">Remaining</string>
+    <string name="remaining_count">1</string>
+    <string name="next_scheduled_day">00</string>
+    <string name="next_scheduled_month">January</string>
+    <string name="cycle_first_day">Mon</string>
+    <string name="cycle_first_date">01</string>
+    <string name="cycle_second_day">Tue</string>
+    <string name="cycle_second_date">02</string>
+    <string name="cycle_third_day">Wed</string>
+    <string name="cycle_third_date">03</string>
+
+</resources>
