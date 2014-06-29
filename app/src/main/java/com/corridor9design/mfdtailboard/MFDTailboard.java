@@ -1,11 +1,25 @@
 package com.corridor9design.mfdtailboard;
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.app.Fragment;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
-public class MFDTailboard extends Activity {
+import com.corridor9design.mfdtailboard.calculator.Calculator;
+import com.corridor9design.mfdtailboard.calendar.Calendar;
+
+public class MFDTailboard extends Activity implements
+                    Calendar.OnFragmentInteractionListener,
+                    Calculator.OnFragmentInteractionListener {
 
     // debug tag for logging
     public static final String TAG = "MFDTailboard";
@@ -14,6 +28,12 @@ public class MFDTailboard extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mfdtailboard);
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.MFDTailboardContainer, new FragmentHandler())
+                    .commit();
+        }
+
     }
 
 
@@ -34,5 +54,10 @@ public class MFDTailboard extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onFragmentInteraction(Uri uri){
+        Toast toast = Toast.makeText(this, "HIT TEXT", Toast.LENGTH_LONG);
+        toast.show();
     }
 }

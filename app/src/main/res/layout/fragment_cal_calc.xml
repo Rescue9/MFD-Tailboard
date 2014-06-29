@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/FragmentContainer"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:weightSum="2">
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.corridor9design.mfdtailboard.calendar.Calendar"
+        android:id="@+id/fragment_cal"
+        android:layout_gravity="center_horizontal"
+        tools:layout="@layout/fragment_calendar"
+        android:layout_weight="1" />
+
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.corridor9design.mfdtailboard.calculator.Calculator"
+        android:id="@+id/fragment_calc"
+        android:layout_gravity="center_horizontal"
+        tools:layout="@layout/fragment_calculator"
+        android:layout_weight="1" />
+</LinearLayout>

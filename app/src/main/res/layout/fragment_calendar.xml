@@ -1,9 +1,10 @@
 <LinearLayout
     android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/">
+    android:id="@+id/calendar_fragment"
+    android:weightSum="1">
 
 
     <LinearLayout
@@ -15,9 +16,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/next_scheduled_label"
-            android:id="@+id/Next Scheduled Label"
+            android:id="@+id/NextScheduledLabel"
             android:layout_weight="1"
-            android:textStyle="bold"
             android:textSize="20sp" />
 
         <LinearLayout
@@ -30,16 +30,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/remaining_label"
-                android:id="@+id/Remaining Label"
+                android:id="@+id/RemainingLabel"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="@string/remaining_count"
-                android:id="@+id/Remaining Count"
+                android:id="@+id/RemainingCount"
                 android:gravity="center"
-                android:textSize="25sp" />
+                android:textSize="30sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -48,13 +48,14 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp">
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="-35dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next_scheduled_day"
-            android:id="@+id/Next Scheduled Date"
+            android:id="@+id/NextScheduledDate"
             android:textSize="102dp"
             android:layout_gravity="center_horizontal" />
 
@@ -62,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next_scheduled_month"
-            android:id="@+id/Next Scheduled Month"
+            android:id="@+id/NextScheduledMonth"
             android:layout_gravity="center_horizontal"
             android:textSize="36sp"
             android:layout_marginTop="-25dp" />
@@ -70,8 +71,8 @@
 
     <View
         android:layout_width="wrap_content"
-        android:layout_height="2dp"
-        android:id="@+id/Horizontal Line"
+        android:layout_height="1dp"
+        android:id="@+id/HorizontalLine"
         android:background="@android:color/black" />
 
     <LinearLayout
@@ -79,7 +80,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="2dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -92,15 +93,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_first_day"
-                android:id="@+id/Cycle First Day"
+                android:id="@+id/CycleFirstDay"
                 android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_first_date"
-                android:id="@+id/Cycle First Date"
-                android:textSize="28dp" />
+                android:id="@+id/CycleFirstDate"
+                android:textSize="30dp" />
 
         </LinearLayout>
 
@@ -115,15 +116,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_second_day"
-                android:id="@+id/Cycle Second Day"
+                android:id="@+id/CycleSecondDay"
                 android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_second_date"
-                android:id="@+id/Cycle Second Date"
-                android:textSize="28dp" />
+                android:id="@+id/CycleSecondDate"
+                android:textSize="30dp" />
 
         </LinearLayout>
 
@@ -138,15 +139,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_third_day"
-                android:id="@+id/Cycle Third Day"
+                android:id="@+id/CycleThirdDay"
                 android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_third_date"
-                android:id="@+id/Cycle Third Date"
-                android:textSize="28dp" />
+                android:id="@+id/CycleThirdDate"
+                android:textSize="30dp" />
 
         </LinearLayout>
 

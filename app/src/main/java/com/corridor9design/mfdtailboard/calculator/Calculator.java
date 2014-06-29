@@ -1,4 +1,4 @@
-package com.corridor9design.mfdtailboard.calendar;
+package com.corridor9design.mfdtailboard.calculator;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.corridor9design.mfdtailboard.R;
 
@@ -16,13 +15,13 @@ import com.corridor9design.mfdtailboard.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Calendar.OnFragmentInteractionListener} interface
+ * {@link Calculator.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Calendar#newInstance} factory method to
+ * Use the {@link Calculator#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class Calendar extends Fragment implements TextView.OnClickListener{
+public class Calculator extends Fragment implements TextView.OnClickListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -40,22 +39,18 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Calendar.
+     * @return A new instance of fragment Calculator.
      */
     // TODO: Rename and change types and number of parameters
-
-    private TextView nextScheduledDate;
-
-
-    public static Calendar newInstance(String param1, String param2) {
-        Calendar fragment = new Calendar();
+    public static Calculator newInstance(String param1, String param2) {
+        Calculator fragment = new Calculator();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-    public Calendar() {
+    public Calculator() {
         // Required empty public constructor
     }
 
@@ -71,17 +66,12 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view =inflater.inflate(R.layout.fragment_calendar, container, false);
-
-        nextScheduledDate = (TextView) view.findViewById(R.id.NextScheduledDate);
-        nextScheduledDate.setOnClickListener(this);
         // Inflate the layout for this fragment
-        return view;
+        return inflater.inflate(R.layout.fragment_calculator, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
-    public void onDateSelected(Uri uri) {
+    public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
@@ -119,7 +109,8 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
         public void onFragmentInteraction(Uri uri);
     }
 
-    public void onClick(View v) {
-        mListener.onFragmentInteraction(null);
+    public void onClick(View v){
+        // nothing yet
     }
+
 }
