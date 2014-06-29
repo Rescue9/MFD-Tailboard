@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
 public class MFDTailboard extends Activity {
+
+    // debug tag for logging
+    public static final String TAG = "MFDTailboard";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
