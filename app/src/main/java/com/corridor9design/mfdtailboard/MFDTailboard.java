@@ -51,8 +51,16 @@ public class MFDTailboard extends Activity implements
         return super.onOptionsItemSelected(item);
     }
 
-    public void onFragmentInteraction(Uri uri){
+    public void onCalendarFragmentInteraction(Uri uri){
         Toast toast = Toast.makeText(this, "HIT TEXT", Toast.LENGTH_LONG);
         toast.show();
     }
+
+    public void onCalculatorFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, new Calculator(), TAG + " switched Calculator to fullscreen")
+                .commit();
+
+    }
+
 }

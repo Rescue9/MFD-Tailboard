@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.corridor9design.mfdtailboard.R;
 
@@ -80,13 +79,6 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onDateSelected(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -116,10 +108,10 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onCalendarFragmentInteraction(Uri uri);
     }
 
     public void onClick(View v) {
-        mListener.onFragmentInteraction(null);
+        mListener.onCalendarFragmentInteraction(null);
     }
 }
