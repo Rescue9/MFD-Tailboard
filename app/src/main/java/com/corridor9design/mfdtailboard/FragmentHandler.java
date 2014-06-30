@@ -21,6 +21,17 @@ public class FragmentHandler extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_cal_calc, container, false) ;
+        View calendar_calculator_container = inflater.inflate(R.layout.fragment_cal_calc, container, false);
+        calendar_calculator_container.setId(R.id.calendar_calculator_container);
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+
+        Fragment calFrag = new Calendar();
+        Fragment calcFrag = new Calculator();
+
+        ft.add(calendar_calculator_container.getId(), Calendar.newInstance("Calendar Fragment", "CalFrag"));
+        ft.add(calendar_calculator_container.getId(), Calculator.newInstance("Calculator Fragment", "CalcFrag"));
+        ft.commit();
+
+        return calendar_calculator_container;
     }
 }

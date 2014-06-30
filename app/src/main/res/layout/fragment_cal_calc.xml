@@ -9,23 +9,5 @@
     android:weightSum="2"
     android:background="@android:color/darker_gray">
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.corridor9design.mfdtailboard.calendar.Calendar"
-        android:id="@+id/fragment_cal"
-        android:layout_gravity="center_horizontal"
-        tools:layout="@layout/fragment_calendar"
-        android:layout_weight="1"
-        android:layout_marginBottom="2dp" />
 
-    <fragment
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:name="com.corridor9design.mfdtailboard.calculator.Calculator"
-        android:id="@+id/fragment_calc"
-        android:layout_gravity="center_horizontal"
-        tools:layout="@layout/fragment_calculator"
-        android:layout_weight="1"
-        android:layout_marginTop="2dp" />
 </LinearLayout>

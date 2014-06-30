@@ -58,7 +58,8 @@ public class MFDTailboard extends Activity implements
 
     public void onCalculatorFragmentInteraction(Uri uri) {
         getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, new Calculator(), TAG + " switched Calculator to fullscreen")
+                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
+                .addToBackStack("Fullscreen Calculator")
                 .commit();
 
     }
