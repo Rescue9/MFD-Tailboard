@@ -7,9 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-import com.corridor9design.mfdtailboard.calendar.Calendar;
 import com.corridor9design.mfdtailboard.calculator.Calculator;
+import com.corridor9design.mfdtailboard.calendar.Calendar;
 
 public class FragmentHandler extends Fragment {
 
@@ -24,9 +23,6 @@ public class FragmentHandler extends Fragment {
         View calendar_calculator_container = inflater.inflate(R.layout.fragment_cal_calc, container, false);
         calendar_calculator_container.setId(R.id.calendar_calculator_container);
         FragmentTransaction ft = getFragmentManager().beginTransaction();
-
-        Fragment calFrag = new Calendar();
-        Fragment calcFrag = new Calculator();
 
         ft.add(calendar_calculator_container.getId(), Calendar.newInstance("Calendar Fragment", "CalFrag"));
         ft.add(calendar_calculator_container.getId(), Calculator.newInstance("Calculator Fragment", "CalcFrag"));

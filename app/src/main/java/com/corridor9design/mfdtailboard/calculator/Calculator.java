@@ -1,13 +1,12 @@
 package com.corridor9design.mfdtailboard.calculator;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 import com.corridor9design.mfdtailboard.R;
 
@@ -19,9 +18,8 @@ import com.corridor9design.mfdtailboard.R;
  * to handle interaction events.
  * Use the {@link Calculator#newInstance} factory method to
  * create an instance of this fragment.
- *
  */
-public class Calculator extends Fragment implements View.OnClickListener{
+public class Calculator extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -32,6 +30,10 @@ public class Calculator extends Fragment implements View.OnClickListener{
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    public Calculator() {
+        // Required empty public constructor
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -49,9 +51,6 @@ public class Calculator extends Fragment implements View.OnClickListener{
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-    public Calculator() {
-        // Required empty public constructor
     }
 
     @Override
@@ -97,12 +96,16 @@ public class Calculator extends Fragment implements View.OnClickListener{
         mListener = null;
     }
 
+    public void onClick(View v) {
+        mListener.onCalculatorFragmentInteraction(null);
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
@@ -110,10 +113,6 @@ public class Calculator extends Fragment implements View.OnClickListener{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onCalculatorFragmentInteraction(Uri uri);
-    }
-
-    public void onClick(View v ){
-        mListener.onCalculatorFragmentInteraction(null);
     }
 
 }

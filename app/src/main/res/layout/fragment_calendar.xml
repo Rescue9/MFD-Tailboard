@@ -1,161 +1,160 @@
-<LinearLayout
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendar_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/calendar_fragment"
-    android:layout_weight="1"
     android:layout_marginBottom="2dp"
-    android:background="@android:color/white">
+    android:layout_weight="1"
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/NextScheduledLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/next_scheduled_label"
-            android:id="@+id/NextScheduledLabel"
             android:layout_weight="1"
+            android:text="@string/next_scheduled_label"
             android:textSize="20sp" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="right">
+            android:gravity="right"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/RemainingLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@string/remaining_label"
-                android:id="@+id/RemainingLabel"
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/RemainingCount"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="@string/remaining_count"
-                android:id="@+id/RemainingCount"
                 android:gravity="center"
+                android:text="@string/remaining_count"
                 android:textSize="30sp" />
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"
-        android:layout_marginTop="-35dp">
+        android:layout_marginTop="-35dp"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/next_scheduled_day"
             android:id="@+id/NextScheduledDate"
-            android:textSize="102dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="-15dp"
-            android:layout_marginBottom="-10dp" />
-
-        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/next_scheduled_month"
-            android:id="@+id/NextScheduledMonth"
             android:layout_gravity="center_horizontal"
-            android:textSize="36sp"
-            android:layout_marginTop="-20dp" />
+            android:layout_marginBottom="-10dp"
+            android:layout_marginTop="-15dp"
+            android:text="@string/next_scheduled_day"
+            android:textSize="102dp" />
+
+        <TextView
+            android:id="@+id/NextScheduledMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-20dp"
+            android:text="@string/next_scheduled_month"
+            android:textSize="36sp" />
     </LinearLayout>
 
     <View
+        android:id="@+id/HorizontalLine"
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:id="@+id/HorizontalLine"
         android:background="@android:color/black" />
 
     <TextView
+        android:id="@+id/NextCycleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/next_cycle_Label"
-        android:id="@+id/NextCycleLabel" />
+        android:text="@string/next_cycle_Label" />
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/CycleFirstDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_first_date"
-                android:id="@+id/CycleFirstDate"
                 android:textSize="30dp" />
 
             <TextView
+                android:id="@+id/CycleFirstDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_first_day"
-                android:id="@+id/CycleFirstDay"
                 android:textSize="18dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/CycleSecondDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_second_date"
-                android:id="@+id/CycleSecondDate"
                 android:textSize="30dp" />
 
             <TextView
+                android:id="@+id/CycleSecondDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_second_day"
-                android:id="@+id/CycleSecondDay"
                 android:textSize="18dp" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
+                android:id="@+id/CycleThirdDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_third_date"
-                android:id="@+id/CycleThirdDate"
                 android:textSize="30dp" />
 
             <TextView
+                android:id="@+id/CycleThirdDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/cycle_third_day"
-                android:id="@+id/CycleThirdDay"
                 android:textSize="18dp" />
 
         </LinearLayout>

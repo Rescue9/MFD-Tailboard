@@ -1,9 +1,9 @@
 package com.corridor9design.mfdtailboard.calendar;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +19,8 @@ import com.corridor9design.mfdtailboard.R;
  * to handle interaction events.
  * Use the {@link Calendar#newInstance} factory method to
  * create an instance of this fragment.
- *
  */
-public class Calendar extends Fragment implements TextView.OnClickListener{
+public class Calendar extends Fragment implements TextView.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -46,6 +45,10 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
     private TextView nextScheduledDate;
 
 
+    public Calendar() {
+        // Required empty public constructor
+    }
+
     public static Calendar newInstance(String param1, String param2) {
         Calendar fragment = new Calendar();
         Bundle args = new Bundle();
@@ -53,9 +56,6 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-    public Calendar() {
-        // Required empty public constructor
     }
 
     @Override
@@ -71,7 +71,7 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view =inflater.inflate(R.layout.fragment_calendar, container, false);
+        View view = inflater.inflate(R.layout.fragment_calendar, container, false);
 
         nextScheduledDate = (TextView) view.findViewById(R.id.NextScheduledDate);
         nextScheduledDate.setOnClickListener(this);
@@ -96,12 +96,16 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
         mListener = null;
     }
 
+    public void onClick(View v) {
+        mListener.onCalendarFragmentInteraction(null);
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
@@ -109,9 +113,5 @@ public class Calendar extends Fragment implements TextView.OnClickListener{
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         public void onCalendarFragmentInteraction(Uri uri);
-    }
-
-    public void onClick(View v) {
-        mListener.onCalendarFragmentInteraction(null);
     }
 }
