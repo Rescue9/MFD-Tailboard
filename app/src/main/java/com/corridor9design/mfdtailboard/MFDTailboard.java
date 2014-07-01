@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -113,21 +114,10 @@ public class MFDTailboard extends Activity implements
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.mfdtailboard, menu);
         return true;
     }
-
-   /* @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -135,14 +125,23 @@ public class MFDTailboard extends Activity implements
          * Declare the behaviour of clicking at the
          * application icon, opening and closing the drawer
          */
+        Toast.makeText(this, item + "", Toast.LENGTH_LONG).show();
         if (item.getItemId() == android.R.id.home) {
             if (mDrawer != null) {
                 if (mDrawer.isDrawerMenuOpen()) {
                     mDrawer.closeDrawerMenu();
                 } else {
-                    mDrawer.openDrawerMenu();
+                    mDrawer.isDrawerMenuOpen();
                 }
             }
+        }
+
+        // setup typical right menu for more permanent items
+        // settings, about, contact, etc.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            mDrawer.openDrawerMenu();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

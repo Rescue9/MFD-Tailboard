@@ -16,4 +16,7 @@
         <item>@drawable/ic_action_cancel</item>
     </array>
 
+    <string name="navigation_header">
+        <item>Views</item>
+    </string>
 </resources>
