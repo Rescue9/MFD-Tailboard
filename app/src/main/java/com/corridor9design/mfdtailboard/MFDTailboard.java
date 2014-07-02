@@ -8,8 +8,8 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +28,7 @@ public class MFDTailboard extends Activity implements
 
     // debug tag for logging
     public static final String TAG = "MFDTailboard";
+    public static final boolean DEBUG = true;
 
     // declarations
     private Context mContext;
@@ -37,8 +38,92 @@ public class MFDTailboard extends Activity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //logcat for initial start
+        if (DEBUG) Log.d(TAG, "Starting...");
         mContext = this;
 
+        googleNavMenuDrawer();
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+        getActionBar().setHomeButtonEnabled(true);
+
+        if (savedInstanceState == null) {
+            getFragmentManager().beginTransaction()
+                    .add(R.id.MFDTailboardContainer, new FragmentHandler())
+                    .commit();
+        }
+        //TODO: Configure screen orientation for tablets, individual fragments, and menu operations
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+    }
+
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.mfdtailboard, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        /*
+         * Declare the behaviour of clicking at the
+         * application icon, opening and closing the drawer
+         */
+        // TESTING Toast.makeText(this, item + "Clicked", Toast.LENGTH_LONG).show();
+        if (item.getItemId() == android.R.id.home) {
+            if (mDrawer != null) {
+                if (mDrawer.isDrawerMenuOpen()) {
+                    mDrawer.closeDrawerMenu();
+                } else {
+                    mDrawer.openDrawerMenu();
+                }
+            }
+        }
+
+        // setup typical right menu for more permanent items
+        // settings, about, contact, etc.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            mDrawer.openDrawerMenu();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private int[] getDrawables() {
+        TypedArray imgs = getResources().obtainTypedArray(R.array.drawable_ids);
+
+        int[] mainSectionDrawables = new int[imgs.length()];
+
+        for (int i = 0; i < imgs.length(); i++) {
+            mainSectionDrawables[i] = imgs.getResourceId(i, 0);
+        }
+
+        return mainSectionDrawables;
+    }
+
+    public void onCalendarFragmentInteraction(Uri uri) {
+        Toast toast = Toast.makeText(this, "HIT TEXT", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    public void onCalculatorFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
+                .addToBackStack("Fullscreen Calculator")
+                .commit();
+
+    }
+
+    public void googleNavMenuDrawer() {
         //Instance the GoogleNavigationDrawer and set the LayoutParams
         mDrawer = new GoogleNavigationDrawer(mContext);
 
@@ -92,83 +177,5 @@ public class MFDTailboard extends Activity implements
 
         //Attach the DrawerListener
         mDrawer.setDrawerListener(drawerToggle);
-
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
-
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.MFDTailboardContainer, new FragmentHandler())
-                    .commit();
-        }
-        //TODO: Configure screen orientation for tablets, individual fragments, and menu operations
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     }
-
-    @Override
-    protected void onPostCreate(Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-        drawerToggle.syncState();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.mfdtailboard, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        /*
-         * Declare the behaviour of clicking at the
-         * application icon, opening and closing the drawer
-         */
-        Toast.makeText(this, item + "", Toast.LENGTH_LONG).show();
-        if (item.getItemId() == android.R.id.home) {
-            if (mDrawer != null) {
-                if (mDrawer.isDrawerMenuOpen()) {
-                    mDrawer.closeDrawerMenu();
-                } else {
-                    mDrawer.isDrawerMenuOpen();
-                }
-            }
-        }
-
-        // setup typical right menu for more permanent items
-        // settings, about, contact, etc.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            mDrawer.openDrawerMenu();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private int[] getDrawables() {
-        TypedArray imgs = getResources().obtainTypedArray(R.array.drawable_ids);
-
-        int[] mainSectionDrawables = new int[imgs.length()];
-
-        for (int i = 0; i < imgs.length(); i++) {
-            mainSectionDrawables[i] = imgs.getResourceId(i, 0);
-        }
-
-        return mainSectionDrawables;
-    }
-
-    public void onCalendarFragmentInteraction(Uri uri) {
-        Toast toast = Toast.makeText(this, "HIT TEXT", Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void onCalculatorFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
-                .addToBackStack("Fullscreen Calculator")
-                .commit();
-
-    }
-
 }
