@@ -30,7 +30,7 @@ public class MFDTailboard extends Activity implements
     public static final String TAG = "MFDTailboard";
     public static final boolean DEBUG = true;
 
-    // declarations
+    // declarations GoogleNavMenuDrawer
     private Context mContext;
     private ActionBarDrawerToggle drawerToggle;
     private GoogleNavigationDrawer mDrawer;
