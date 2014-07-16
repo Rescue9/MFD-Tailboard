@@ -15,8 +15,8 @@
     </string-array>
 
     <array name="drawable_ids">
-        <item>@drawable/ic_action_accept</item>
         <item>@drawable/ic_action_cancel</item>
+        <item>@drawable/ic_action_accept</item>
     </array>
 
     <string name="navigation_header">
