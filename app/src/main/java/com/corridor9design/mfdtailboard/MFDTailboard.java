@@ -98,9 +98,17 @@ public class MFDTailboard extends Activity implements
         return super.onOptionsItemSelected(item);
     }
 
-    private int[] getDrawables() {
-        TypedArray imgs = getResources().obtainTypedArray(R.array.drawable_ids);
+    // TODO implement dark / light themeing via settings
+    private int[] getMainDrawables(boolean holoDark) {
+        TypedArray imgs;
 
+        if (holoDark){
+            imgs = getResources().obtainTypedArray(R.array.drawable_ids_main_dark);
+
+        } else {
+            imgs = getResources().obtainTypedArray(R.array.drawable_ids_main_light);
+
+        }
         int[] mainSectionDrawables = new int[imgs.length()];
 
         for (int i = 0; i < imgs.length(); i++) {
@@ -108,6 +116,27 @@ public class MFDTailboard extends Activity implements
         }
 
         return mainSectionDrawables;
+    }
+
+    // TODO implement dark / light themeing via settings
+    private int[] getSecondaryDrawables(boolean holoDark) {
+        TypedArray imgs;
+
+        if (holoDark){
+            imgs = getResources().obtainTypedArray(R.array.drawable_ids_secondary_dark);
+
+        } else {
+            imgs  = getResources().obtainTypedArray(R.array.drawable_ids_secondary_light);
+
+        }
+
+        int[] secondarySectionDrawables = new int[imgs.length()];
+
+        for (int i = 0; i < imgs.length(); i++) {
+            secondarySectionDrawables[i] = imgs.getResourceId(i, 0);
+        }
+
+        return secondarySectionDrawables;
     }
 
     public void onCalendarFragmentInteraction(Uri uri) {
@@ -130,12 +159,13 @@ public class MFDTailboard extends Activity implements
         // Here we are providing data to the adapter of the ListView
         String[] mainSections = getResources().getStringArray(R.array.navigation_main_sections);
         String[] secondarySections = getResources().getStringArray(R.array.navigation_secondary_sections);
-        int[] mainSectionDrawables = getDrawables();
+        int[] mainSectionDrawables = getMainDrawables(false);  //TODO get holoDark boolean from settings
+        int[] secondarySectionDrawables = getSecondaryDrawables(false); //TODO get holoDark boolean from settings
 
         mDrawer.setListViewSections(mainSections, // Main sections
                 secondarySections, // Secondary sections
                 mainSectionDrawables, // Main sections icon ids
-                null); // Secondary sections icon ids
+                secondarySectionDrawables); // Secondary sections icon ids
 
         LayoutInflater inflater = getLayoutInflater();
         View contentView = inflater.inflate(R.layout.activity_mfdtailboard, null);
