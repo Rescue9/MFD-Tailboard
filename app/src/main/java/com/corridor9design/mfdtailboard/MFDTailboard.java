@@ -134,7 +134,7 @@ public class MFDTailboard extends Activity implements
 
         mDrawer.setListViewSections(mainSections, // Main sections
                 secondarySections, // Secondary sections
-                mainSectionDrawables, // Main sections icon ids
+                null, // Main sections icon ids
                 null); // Secondary sections icon ids
 
         LayoutInflater inflater = getLayoutInflater();

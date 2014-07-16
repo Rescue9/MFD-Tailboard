@@ -2,8 +2,11 @@
 <resources>
 
     <string-array name="navigation_main_sections">
-        <item>Home</item>
-        <item>Some Other</item>
+        <item>Overview</item>
+        <item>Calculator</item>
+        <item>Calendar</item>
+        <item>Callbacks</item>
+        <item>Todo</item>
     </string-array>
 
     <string-array name="navigation_secondary_sections">
