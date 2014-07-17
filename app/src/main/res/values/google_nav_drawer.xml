@@ -6,6 +6,7 @@
         <item>Calculator</item>
         <item>Calendar</item>
         <item>Callbacks</item>
+        <item>Accrued Time</item>
         <item>Todo</item>
     </string-array>
 
@@ -19,6 +20,7 @@
         <item>@drawable/ic_action_calculator_light</item>
         <item>@drawable/ic_action_calendar_light</item>
         <item>@drawable/ic_action_callbacks_light</item>
+        <item>@drawable/ic_action_accrued_time_light</item>
         <item>@drawable/ic_action_todo_light</item>
     </array>
 
@@ -32,6 +34,7 @@
         <item>@drawable/ic_action_calculator_dark</item>
         <item>@drawable/ic_action_calendar_dark</item>
         <item>@drawable/ic_action_callbacks_dark</item>
+        <item>@drawable/ic_action_accrued_time_dark</item>
         <item>@drawable/ic_action_todo_dark</item>
     </array>
 
