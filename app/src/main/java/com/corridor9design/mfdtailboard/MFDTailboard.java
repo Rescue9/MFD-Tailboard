@@ -22,6 +22,7 @@ import com.corridor9design.mfdtailboard.calendar.Calendar;
 
 import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
 
+
 public class MFDTailboard extends Activity implements
         Calendar.OnFragmentInteractionListener,
         Calculator.OnFragmentInteractionListener {
@@ -157,8 +158,14 @@ public class MFDTailboard extends Activity implements
         mDrawer = new GoogleNavigationDrawer(mContext);
 
         // Here we are providing data to the adapter of the ListView
-        String[] mainSections = getResources().getStringArray(R.array.navigation_main_sections);
+        final String[] mainSections = getResources().getStringArray(R.array.navigation_main_sections);
         String[] secondarySections = getResources().getStringArray(R.array.navigation_secondary_sections);
+
+        final String[] allSections = new String[mainSections.length + secondarySections.length];
+        System.arraycopy(mainSections, 0, allSections, 0, mainSections.length);
+        System.arraycopy(secondarySections, 0, allSections, mainSections.length, secondarySections.length);
+
+
         int[] mainSectionDrawables = getMainDrawables(false);  //TODO get holoDark boolean from settings
         int[] secondarySectionDrawables = getSecondaryDrawables(false); //TODO get holoDark boolean from settings
 
@@ -178,23 +185,17 @@ public class MFDTailboard extends Activity implements
         TextView header = new TextView(this);
         header.setTextColor(Color.WHITE);
         header.setGravity(Gravity.CENTER_HORIZONTAL);
-        //header.setBackgroundResource();
-        header.setText("The clickable header");
+        header.setBackgroundColor(Color.DKGRAY);
+        header.setText("Menu");
         header.setPadding(padding, padding, padding, padding);
 
-        TextView footer = new TextView(this);
-        footer.setText("The footer");
-        footer.setTextColor(Color.WHITE);
-        footer.setPadding(padding, padding, padding, padding);
-        footer.setGravity(Gravity.CENTER_HORIZONTAL);
-        footer.setBackgroundColor(Color.DKGRAY);
-        mDrawer.setMenuHeaderAndFooter(header, footer, true, false);
+        mDrawer.setMenuHeader(header, false);
         setContentView(mDrawer);
 
         mDrawer.setOnNavigationSectionSelected(new GoogleNavigationDrawer.OnNavigationSectionSelected() {
             @Override
             public void onSectionSelected(View v, int i, long l) {
-                Toast.makeText(getBaseContext(), "Selected section: " + i, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Selected section: " + allSections[i-1], Toast.LENGTH_SHORT).show();
             }
         });
 
