@@ -3,6 +3,7 @@
     android:id="@+id/accrued_time_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="1dp"
     android:layout_weight="1"
     tools:context="com.corridor9design.mfdtailboard.accruedTime.AccruedTime"
     android:background="@android:color/white">
