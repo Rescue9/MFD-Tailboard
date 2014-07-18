@@ -20,7 +20,7 @@ import com.corridor9design.mfdtailboard.R;
  * create an instance of this fragment.
  *
  */
-public class Todo extends Fragment {
+public class Todo extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -66,15 +66,18 @@ public class Todo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_todo, container, false);
+        View view = inflater.inflate(R.layout.fragment_todo, container, false);
+        view.setOnClickListener(this);
+
+        return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
+    /*// TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onTodoFragmentInteraction(uri);
         }
-    }
+    }*/
 
     @Override
     public void onAttach(Activity activity) {
@@ -93,6 +96,8 @@ public class Todo extends Fragment {
         mListener = null;
     }
 
+    public void onClick(View v) { mListener.onTodoFragmentInteraction(null);}
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -105,7 +110,7 @@ public class Todo extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onTodoFragmentInteraction(Uri uri);
     }
 
 }

@@ -2,6 +2,8 @@
 <resources>
 
     <item name="calendar_callback_container" type="id" />
+    <item name="calculator_container" type="id" />
     <item name="accrued_time_todo_container" type="id" />
+    <item name="overview_container" type="id" />
 
 </resources>
