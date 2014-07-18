@@ -2,7 +2,6 @@ package com.corridor9design.mfdtailboard;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.ActivityInfo;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.Uri;
@@ -19,9 +18,8 @@ import android.widget.Toast;
 
 import com.corridor9design.mfdtailboard.accruedTime.AccruedTime;
 import com.corridor9design.mfdtailboard.calculator.Calculator;
-import com.corridor9design.mfdtailboard.callback.Callback;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
-import com.corridor9design.mfdtailboard.fragments.CalculatorContainer;
+import com.corridor9design.mfdtailboard.callback.Callback;
 import com.corridor9design.mfdtailboard.fragments.Overview;
 import com.corridor9design.mfdtailboard.todo.Todo;
 
@@ -41,7 +39,7 @@ public class MFDTailboard extends Activity implements
 
     // declarations GoogleNavMenuDrawer
     private Context mContext;
-    private ActionBarDrawerToggle drawerToggle;
+    private ActionBarDrawerToggle mDrawerToggle;
     private GoogleNavigationDrawer mDrawer;
 
     @Override
@@ -69,7 +67,7 @@ public class MFDTailboard extends Activity implements
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        drawerToggle.syncState();
+        mDrawerToggle.syncState();
     }
 
     @Override
@@ -109,19 +107,19 @@ public class MFDTailboard extends Activity implements
 
     // TODO implement dark / light themeing via settings
     private int[] getMainDrawables(boolean holoDark) {
-        TypedArray imgs;
+        TypedArray mImgs;
 
         if (holoDark){
-            imgs = getResources().obtainTypedArray(R.array.drawable_ids_main_dark);
+            mImgs = getResources().obtainTypedArray(R.array.drawable_ids_main_dark);
 
         } else {
-            imgs = getResources().obtainTypedArray(R.array.drawable_ids_main_light);
+            mImgs = getResources().obtainTypedArray(R.array.drawable_ids_main_light);
 
         }
-        int[] mainSectionDrawables = new int[imgs.length()];
+        int[] mainSectionDrawables = new int[mImgs.length()];
 
-        for (int i = 0; i < imgs.length(); i++) {
-            mainSectionDrawables[i] = imgs.getResourceId(i, 0);
+        for (int i = 0; i < mImgs.length(); i++) {
+            mainSectionDrawables[i] = mImgs.getResourceId(i, 0);
         }
 
         return mainSectionDrawables;
@@ -129,28 +127,30 @@ public class MFDTailboard extends Activity implements
 
     // TODO implement dark / light themeing via settings
     private int[] getSecondaryDrawables(boolean holoDark) {
-        TypedArray imgs;
+        TypedArray mImgs;
 
         if (holoDark){
-            imgs = getResources().obtainTypedArray(R.array.drawable_ids_secondary_dark);
+            mImgs = getResources().obtainTypedArray(R.array.drawable_ids_secondary_dark);
 
         } else {
-            imgs  = getResources().obtainTypedArray(R.array.drawable_ids_secondary_light);
+            mImgs  = getResources().obtainTypedArray(R.array.drawable_ids_secondary_light);
 
         }
 
-        int[] secondarySectionDrawables = new int[imgs.length()];
+        int[] secondarySectionDrawables = new int[mImgs.length()];
 
-        for (int i = 0; i < imgs.length(); i++) {
-            secondarySectionDrawables[i] = imgs.getResourceId(i, 0);
+        for (int i = 0; i < mImgs.length(); i++) {
+            secondarySectionDrawables[i] = mImgs.getResourceId(i, 0);
         }
 
         return secondarySectionDrawables;
     }
 
     public void onCalendarFragmentInteraction(Uri uri) {
-        Toast toast = Toast.makeText(this, "HIT TEXT", Toast.LENGTH_LONG);
-        toast.show();
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer,Calendar.newInstance("Calendar Fragment", "CalFrag"))
+                .addToBackStack("Fullscreen Calendar")
+                .commit();
     }
 
     public void onCallbackFragmentInteraction(Uri uri) {
@@ -187,21 +187,21 @@ public class MFDTailboard extends Activity implements
         mDrawer = new GoogleNavigationDrawer(mContext);
 
         // Here we are providing data to the adapter of the ListView
-        final String[] mainSections = getResources().getStringArray(R.array.navigation_main_sections);
-        String[] secondarySections = getResources().getStringArray(R.array.navigation_secondary_sections);
+        final String[] mMainSections = getResources().getStringArray(R.array.navigation_main_sections);
+        String[] mSecondarySections = getResources().getStringArray(R.array.navigation_secondary_sections);
 
-        final String[] allSections = new String[mainSections.length + secondarySections.length];
-        System.arraycopy(mainSections, 0, allSections, 0, mainSections.length);
-        System.arraycopy(secondarySections, 0, allSections, mainSections.length, secondarySections.length);
+        final String[] mAllSections = new String[mMainSections.length + mSecondarySections.length];
+        System.arraycopy(mMainSections, 0, mAllSections, 0, mMainSections.length);
+        System.arraycopy(mSecondarySections, 0, mAllSections, mMainSections.length, mSecondarySections.length);
 
 
-        int[] mainSectionDrawables = getMainDrawables(false);  //TODO get holoDark boolean from settings
-        int[] secondarySectionDrawables = getSecondaryDrawables(false); //TODO get holoDark boolean from settings
+        int[] mMainSectionDrawables = getMainDrawables(false);  //TODO get holoDark boolean from settings
+        int[] mSecondarySectionDrawables = getSecondaryDrawables(false); //TODO get holoDark boolean from settings
 
-        mDrawer.setListViewSections(mainSections, // Main sections
-                secondarySections, // Secondary sections
-                mainSectionDrawables, // Main sections icon ids
-                secondarySectionDrawables); // Secondary sections icon ids
+        mDrawer.setListViewSections(mMainSections, // Main sections
+                mSecondarySections, // Secondary sections
+                mMainSectionDrawables, // Main sections icon ids
+                mSecondarySectionDrawables); // Secondary sections icon ids
 
         LayoutInflater inflater = getLayoutInflater();
         View contentView = inflater.inflate(R.layout.activity_mfdtailboard, null);
@@ -210,7 +210,7 @@ public class MFDTailboard extends Activity implements
         float density = getResources().getDisplayMetrics().density;
         int padding = (int) (8 * density);
 
-        // Now we add a clickable header and an unclickable footer to the menu
+        // Now we add a clickable header to the menu
         TextView header = new TextView(this);
         header.setTextColor(Color.WHITE);
         header.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -224,18 +224,18 @@ public class MFDTailboard extends Activity implements
         mDrawer.setOnNavigationSectionSelected(new GoogleNavigationDrawer.OnNavigationSectionSelected() {
             @Override
             public void onSectionSelected(View v, int i, long l) {
-                Toast.makeText(getBaseContext(), "Selected section: " + allSections[i-1], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Selected section: " + mAllSections[i-1], Toast.LENGTH_SHORT).show();
             }
         });
 
-        //Prepare the drawerToggle in order to be able to open/close the drawer
-        drawerToggle = new ActionBarDrawerToggle(this,
+        //Prepare the mDrawerToggle in order to be able to open/close the drawer
+        mDrawerToggle = new ActionBarDrawerToggle(this,
                 mDrawer,
                 R.drawable.ic_drawer,
                 R.string.app_name,
                 R.string.app_name);
 
         //Attach the DrawerListener
-        mDrawer.setDrawerListener(drawerToggle);
+        mDrawer.setDrawerListener(mDrawerToggle);
     }
 }
