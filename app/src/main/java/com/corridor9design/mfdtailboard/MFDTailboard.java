@@ -21,6 +21,7 @@ import com.corridor9design.mfdtailboard.calculator.Calculator;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
 import com.corridor9design.mfdtailboard.callback.Callback;
 import com.corridor9design.mfdtailboard.fragments.Overview;
+import com.corridor9design.mfdtailboard.settings.Settings;
 import com.corridor9design.mfdtailboard.todo.Todo;
 
 import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
@@ -224,7 +225,16 @@ public class MFDTailboard extends Activity implements
         mDrawer.setOnNavigationSectionSelected(new GoogleNavigationDrawer.OnNavigationSectionSelected() {
             @Override
             public void onSectionSelected(View v, int i, long l) {
-                Toast.makeText(getBaseContext(), "Selected section: " + mAllSections[i-1], Toast.LENGTH_SHORT).show();
+
+                if (i == 7){
+                    getFragmentManager().beginTransaction()
+                            .replace(R.id.MFDTailboardContainer, Settings.newInstance("Settings Fragment", "SetFrag"), TAG + " switched Settings to fullscreen")
+                            .addToBackStack("Fullscreen Settings")
+                            .commit();
+
+                } else {
+                    Toast.makeText(getBaseContext(), "Selected section: " + mAllSections[i - 1], Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
