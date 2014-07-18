@@ -1,18 +1,18 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/calculator_fragment"
+    android:id="@+id/accrued_time_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:background="@android:color/white"
-    tools:context="com.corridor9design.mfdtailboard.calculator.Calculator">
+    tools:context="com.corridor9design.mfdtailboard.accruedTime.AccruedTime"
+    android:background="@android:color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:text="@string/accrued_time_hello_string"
         android:gravity="center_vertical|center_horizontal"
-        android:text="@string/calculator_hello_string"
         android:textSize="25dp" />
 
 </FrameLayout>

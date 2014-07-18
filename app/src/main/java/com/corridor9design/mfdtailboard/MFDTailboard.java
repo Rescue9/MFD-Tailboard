@@ -17,15 +17,23 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.corridor9design.mfdtailboard.accruedTime.AccruedTime;
 import com.corridor9design.mfdtailboard.calculator.Calculator;
+import com.corridor9design.mfdtailboard.callback.Callback;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
+import com.corridor9design.mfdtailboard.fragments.CalculatorContainer;
+import com.corridor9design.mfdtailboard.fragments.Overview;
+import com.corridor9design.mfdtailboard.todo.Todo;
 
 import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
 
 
 public class MFDTailboard extends Activity implements
         Calendar.OnFragmentInteractionListener,
-        Calculator.OnFragmentInteractionListener {
+        Callback.OnFragmentInteractionListener,
+        Calculator.OnFragmentInteractionListener,
+        AccruedTime.OnFragmentInteractionListener,
+        Todo.OnFragmentInteractionListener {
 
     // debug tag for logging
     public static final String TAG = "MFDTailboard";
@@ -51,11 +59,11 @@ public class MFDTailboard extends Activity implements
 
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.MFDTailboardContainer, new FragmentHandler())
+                    .add(R.id.MFDTailboardContainer, new Overview())
                     .commit();
         }
         //TODO: Configure screen orientation for tablets, individual fragments, and menu operations
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+        //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     }
 
     @Override
@@ -145,12 +153,33 @@ public class MFDTailboard extends Activity implements
         toast.show();
     }
 
+    public void onCallbackFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, Callback.newInstance("Callback Fragment", "CallFrag"), TAG + " switched Callback to fullscreen")
+                .addToBackStack("Fullscreen Callback")
+                .commit();
+
+    }
+
     public void onCalculatorFragmentInteraction(Uri uri) {
         getFragmentManager().beginTransaction()
                 .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
                 .addToBackStack("Fullscreen Calculator")
                 .commit();
+    }
 
+    public void onAccruedTimeFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccruedTime Fragment", "AccrFrag"), TAG + " switched AccruedTime to fullscreen")
+                .addToBackStack("Fullscreen AccruedTime")
+                .commit();
+    }
+
+    public void onTodoFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, Todo.newInstance("Todo Fragment", "TodoFrag"), TAG + " switched Todo to fullscreen")
+                .addToBackStack("Fullscreen Todo")
+                .commit();
     }
 
     public void googleNavMenuDrawer() {

@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:background="@android:color/darker_gray"
+    android:orientation="horizontal"
+    android:weightSum="3"
+    tools:context=".fragments.Overview">
+
+</LinearLayout>
