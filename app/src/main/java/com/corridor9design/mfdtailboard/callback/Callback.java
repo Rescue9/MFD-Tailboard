@@ -14,13 +14,13 @@ import com.corridor9design.mfdtailboard.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Callbacks.OnFragmentInteractionListener} interface
+ * {@link Callback.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Callbacks#newInstance} factory method to
+ * Use the {@link Callback#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class Callbacks extends Fragment {
+public class Callback extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,18 +38,18 @@ public class Callbacks extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Callbacks.
+     * @return A new instance of fragment Callback.
      */
     // TODO: Rename and change types and number of parameters
-    public static Callbacks newInstance(String param1, String param2) {
-        Callbacks fragment = new Callbacks();
+    public static Callback newInstance(String param1, String param2) {
+        Callback fragment = new Callback();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-    public Callbacks() {
+    public Callback() {
         // Required empty public constructor
     }
 
@@ -66,7 +66,7 @@ public class Callbacks extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_callbacks, container, false);
+        return inflater.inflate(R.layout.fragment_callback, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event

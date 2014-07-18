@@ -2,12 +2,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.corridor9design.mfdtailboard.callback.Callbacks">
+    tools:context="com.corridor9design.mfdtailboard.callback.Callback">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/callback_hello_string" />
 
 </FrameLayout>
