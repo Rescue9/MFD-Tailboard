@@ -2,12 +2,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.corridor9design.mfdtailboard.accruedTime.AccruedTime">
+    android:layout_weight="1"
+    tools:context="com.corridor9design.mfdtailboard.accruedTime.AccruedTime"
+    android:background="@android:color/white">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/accrued_time_hello_string" />
+        android:text="@string/accrued_time_hello_string"
+        android:gravity="center_vertical|center_horizontal"
+        android:textSize="25dp" />
 
 </FrameLayout>

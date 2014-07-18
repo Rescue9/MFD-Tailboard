@@ -1,4 +1,4 @@
-package com.corridor9design.mfdtailboard.callback;
+package com.corridor9design.mfdtailboard.info;
 
 import android.app.Activity;
 import android.net.Uri;
@@ -10,17 +10,16 @@ import android.view.ViewGroup;
 
 import com.corridor9design.mfdtailboard.R;
 
-
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Callback.OnFragmentInteractionListener} interface
+ * {@link Info.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Callback#newInstance} factory method to
+ * Use the {@link Info#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class Callback extends Fragment implements View.OnClickListener {
+public class Info extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -38,18 +37,18 @@ public class Callback extends Fragment implements View.OnClickListener {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Calculator.
+     * @return A new instance of fragment Info.
      */
     // TODO: Rename and change types and number of parameters
-    public static Callback newInstance(String param1, String param2) {
-        Callback fragment = new Callback();
+    public static Info newInstance(String param1, String param2) {
+        Info fragment = new Info();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-    public Callback() {
+    public Info() {
         // Required empty public constructor
     }
 
@@ -66,18 +65,15 @@ public class Callback extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_callback, container, false);
-        view.setOnClickListener(this);
-
-        return view;
+        return inflater.inflate(R.layout.fragment_info, container, false);
     }
 
-    /*// TODO: Rename method, update argument and hook method into UI event
+    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
-    }*/
+    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -96,10 +92,6 @@ public class Callback extends Fragment implements View.OnClickListener {
         mListener = null;
     }
 
-    public void onClick(View v) {mListener.onCallbackFragmentInteraction(null);
-    }
-
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -112,7 +104,7 @@ public class Callback extends Fragment implements View.OnClickListener {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onCallbackFragmentInteraction(Uri uri);
+        public void onFragmentInteraction(Uri uri);
     }
 
 }

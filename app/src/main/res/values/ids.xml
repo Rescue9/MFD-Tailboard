@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <item name="calendar_calculator_container" type="id" />
-    <item name="callbacks_todo_container" type="id" />
+    <item name="calendar_callback_container" type="id" />
+    <item name="accrued_time_todo_container" type="id" />
 
 </resources>

@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.corridor9design.mfdtailboard.calculator.Calculator;
+import com.corridor9design.mfdtailboard.callback.Callback;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
 
 import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
@@ -25,7 +25,7 @@ import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
 
 public class MFDTailboard extends Activity implements
         Calendar.OnFragmentInteractionListener,
-        Calculator.OnFragmentInteractionListener {
+        Callback.OnFragmentInteractionListener {
 
     // debug tag for logging
     public static final String TAG = "MFDTailboard";
@@ -145,10 +145,10 @@ public class MFDTailboard extends Activity implements
         toast.show();
     }
 
-    public void onCalculatorFragmentInteraction(Uri uri) {
+    public void onCallbackFragmentInteraction(Uri uri) {
         getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
-                .addToBackStack("Fullscreen Calculator")
+                .replace(R.id.MFDTailboardContainer, Callback.newInstance("Callback Fragment", "CallFrag"), TAG + " switched Callback to fullscreen")
+                .addToBackStack("Fullscreen Callback")
                 .commit();
 
     }
