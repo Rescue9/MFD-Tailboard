@@ -76,6 +76,10 @@ public class Settings extends PreferenceFragment implements SharedPreferences.On
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        // create a shared preferences editor
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // update the current rank
 
     }
 
