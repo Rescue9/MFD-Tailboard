@@ -1,25 +1,26 @@
 package com.corridor9design.mfdtailboard.settings;
 
-import android.app.Activity;
-import android.net.Uri;
+
+
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.TextView;
 import com.corridor9design.mfdtailboard.R;
+
+import java.text.DecimalFormat;
 
 /**
  * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Settings.OnFragmentInteractionListener} interface
- * to handle interaction events.
  * Use the {@link Settings#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class Settings extends Fragment {
+public class Settings extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener{
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,7 +30,17 @@ public class Settings extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    // SharedPreference string instantiation
+    public static final String THEME = "setting_theme";
+    public static final String CURRENT_RANK = "setting_rank";
+    public static final String CURRENT_RANK_INT = "setting_rank_int";
+    public static final String MARITAL_STATUS = "setting_marital_status";
+    public static final String EXEMPTIONS = "setting_exemptions";
+    public static final String ADD_FEDERAL_EXEMPTIONS = "setting_add_federal_exemptions";
+    public static final String ADD_STATE_EXEMPTIONS = "setting_add_state_exemptions";
+
+    // DecimalFormation instantiation
+    DecimalFormat df = new DecimalFormat("$##0.00");
 
     /**
      * Use this factory method to create a new instance of
@@ -59,52 +70,27 @@ public class Settings extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        addPreferencesFromResource(R.xml.settings_layout);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_settings, container, false);
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        // create a shared preferences editor
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        // update the current rank
+
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+    public void onResume() {
+        super.onResume();
+        getPreferenceScreen().getSharedPreferences().registerOnSharedPreferenceChangeListener(this);
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        try {
-            mListener = (OnFragmentInteractionListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+    public void onPause() {
+        super.onPause();
+        getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(
+                this);
     }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
-    }
-
 }

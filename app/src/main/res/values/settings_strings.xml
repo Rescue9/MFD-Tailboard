@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="settings_title">Settings</string>
     <string name="settings_hello_string">Hello: Settings</string>
+    <string name="settings_layout_label">Layout</string>
+    <string name="setting_dark_theme">Use dark theme</string>
+    <string name="setting_fire_dept_info_label">Fire Department Info</string>
+    <string name="setting_hire_date">Hire date</string>
+    <string name="setting_rank">Current rank</string>
+    <string name="setting_tax_label">Tax Info</string>
+    <string name="setting_marital_label">Marital status</string>
+    <string name="setting_marital_dialog_title">What is your marital status</string>
+
+
+
+    <string name="setting_default_rank">Probationary Firefighter 1</string>
+    <string-array name="setting_rank_labels">
+        <item>Probationary Firefighter 1</item>
+        <item>Probationary Firefighter 2</item>
+        <item>Firefighter</item>
+        <item>Engineer</item>
+        <item>Lieutenant</item>
+        <item>Captain</item>
+        <item>Major</item>
+    </string-array>
+
+    <string-array name="setting_rank_value">
+        <item>Probationary Firefighter 1</item>
+        <item>Probationary Firefighter 2</item>
+        <item>Firefighter</item>
+        <item>Engineer</item>
+        <item>Lieutenant</item>
+        <item>Captain</item>
+        <item>Major</item>
+    </string-array>
+
+    <string name="setting_default_marital">Single</string>
+    <string-array name="setting_marital_status">
+        <item>Single</item>
+        <item>Married</item>
+    </string-array>
+
+    <string-array name="setting_marital_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

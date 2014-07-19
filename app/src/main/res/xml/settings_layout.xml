@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:title="@string/settings_layout_label">
+
+        <CheckBoxPreference
+            android:key="setting_theme"
+            android:title="@string/setting_dark_theme" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/setting_fire_dept_info_label">
+
+        <CheckBoxPreference
+            android:key="setting_hire_date"
+            android:title="@string/setting_hire_date" />
+
+        <ListPreference
+            android:defaultValue="@string/setting_default_rank"
+            android:entries="@array/setting_rank_labels"
+            android:entryValues="@array/setting_rank_value"
+            android:key="setting_rank"
+            android:selectable="true"
+            android:summary="%s"
+            android:title="@string/setting_rank" />
+
+        </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/setting_tax_label">
+
+        <ListPreference
+            android:defaultValue="@string/setting_default_marital"
+            android:dialogTitle="@string/setting_marital_dialog_title"
+            android:entries="@array/setting_marital_status"
+            android:entryValues="@array/setting_marital_value"
+            android:key="setting_marital_status"
+            android:selectable="true"
+            android:summary="%s"
+            android:title="@string/setting_marital_label" />
+
+
+        </PreferenceCategory>
+
+</PreferenceScreen>
