@@ -5,11 +5,21 @@ package com.corridor9design.mfdtailboard.settings;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Debug;
+import android.preference.CheckBoxPreference;
+import android.preference.EditTextPreference;
+import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.corridor9design.mfdtailboard.MFDTailboard;
 import com.corridor9design.mfdtailboard.R;
 
 import java.text.DecimalFormat;
@@ -20,7 +30,8 @@ import java.text.DecimalFormat;
  * create an instance of this fragment.
  *
  */
-public class Settings extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener{
+public class Settings extends PreferenceFragment implements
+        SharedPreferences.OnSharedPreferenceChangeListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,6 +52,10 @@ public class Settings extends PreferenceFragment implements SharedPreferences.On
 
     // DecimalFormation instantiation
     DecimalFormat df = new DecimalFormat("$##0.00");
+
+    // setup sharedPreferences & preferences editor
+    //SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(MFDTailboard.getContext());
+    //SharedPreferences.Editor mEditor = mPrefs.edit();
 
     /**
      * Use this factory method to create a new instance of
@@ -66,21 +81,16 @@ public class Settings extends PreferenceFragment implements SharedPreferences.On
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (MFDTailboard.DEBUG) {
+            Log.d(MFDTailboard.TAG, "Starting Settings");
+        }
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
         addPreferencesFromResource(R.xml.settings_layout);
-    }
-
-    @Override
-    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-        // create a shared preferences editor
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        // update the current rank
-
     }
 
     public void onResume() {
@@ -92,5 +102,14 @@ public class Settings extends PreferenceFragment implements SharedPreferences.On
         super.onPause();
         getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(
                 this);
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+
+        if (MFDTailboard.DEBUG) {
+            Log.d(MFDTailboard.TAG, "Preference changed: " + s);
+        }
+
     }
 }
