@@ -3,17 +3,14 @@
 
     <string name="settings_title">Settings</string>
     <string name="settings_hello_string">Hello: Settings</string>
-    <string name="settings_layout_label">Layout</string>
+
+    <string name="settings_layout_header">Layout</string>
     <string name="setting_dark_theme">Use dark theme</string>
-    <string name="setting_fire_dept_info_label">Fire Department Info</string>
-    <string name="setting_hire_date">Hire date</string>
-    <string name="setting_rank">Current rank</string>
-    <string name="setting_tax_label">Tax Info</string>
-    <string name="setting_marital_label">Marital status</string>
-    <string name="setting_marital_dialog_title">What is your marital status</string>
 
-
-
+    <string name="setting_fire_dept_info_header">Fire Department Info</string>
+    <string name="setting_hire_date_title">Hire date</string>
+    <string name="setting_rank_title">Current rank</string>
+    <string name="setting_rank_dialog_title">Select your current rank</string>
     <string name="setting_default_rank">Probationary Firefighter 1</string>
     <string-array name="setting_rank_labels">
         <item>Probationary Firefighter 1</item>
@@ -24,7 +21,6 @@
         <item>Captain</item>
         <item>Major</item>
     </string-array>
-
     <string-array name="setting_rank_value">
         <item>Probationary Firefighter 1</item>
         <item>Probationary Firefighter 2</item>
@@ -34,9 +30,24 @@
         <item>Captain</item>
         <item>Major</item>
     </string-array>
+    <string name="setting_shift_title">Current Shift</string>
+    <string name="setting_default_shift">A</string>
+    <string-array name="setting_shift_labels">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
+    <string-array name="setting_shift_value">
+        <item>A</item>
+        <item>B</item>
+        <item>C</item>
+    </string-array>
 
-    <string name="setting_default_marital">Single</string>
-    <string-array name="setting_marital_status">
+    <string name="setting_tax_header">Tax Info</string>
+    <string name="setting_marital_title">Marital status</string>
+    <string name="setting_marital_dialog_title">What is your marital status</string>
+    <string name="setting_default_marital">1</string>
+    <string-array name="setting_marital_labels">
         <item>Single</item>
         <item>Married</item>
     </string-array>
@@ -45,4 +56,17 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string name="setting_exemptions_title">Exemptions</string>
+    <string name="setting_withholding_title">Additional taxes withheld</string>
+    <string name="setting_withholding_amounts">Edit withholding amounts</string>
+    <string name="setting_withholding_summary">Federal: $0.00&#160;&#160;&#160;&#160;&#160;&#160;&#160;State: $0.00</string>
+    <string name="setting_withholding_spacer">&#160;&#160;&#160;&#160;&#160;&#160;&#160;</string>
+    <string name="setting_federal_title">Federal withholding amount</string>
+    <string name="setting_federal_dialog_title">Enter additional federal withholding amount</string>
+    <string name="setting_federal_withholding_amount">Federal: $0.00</string>
+    <string name="setting_state_title">State withholding amount</string>
+    <string name="setting_state_withholding_amount">State: $0.00</string>
+    <string name="setting_state_dialog_title">Enter additional state withholding amount</string>
+
+
 </resources>

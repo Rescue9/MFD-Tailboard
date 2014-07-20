@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.Gravity;
@@ -39,7 +40,7 @@ public class MFDTailboard extends Activity implements
     public static final boolean DEBUG = true;
 
     // declarations GoogleNavMenuDrawer
-    private Context mContext;
+    private static Context mContext;
     private ActionBarDrawerToggle mDrawerToggle;
     private GoogleNavigationDrawer mDrawer;
 
@@ -61,6 +62,10 @@ public class MFDTailboard extends Activity implements
                     .add(R.id.MFDTailboardContainer, new Overview())
                     .commit();
         }
+
+        // set default setting values. necessary for initial run
+        PreferenceManager.setDefaultValues(this, R.xml.settings_layout, false);
+
         //TODO: Configure screen orientation for tablets, individual fragments, and menu operations
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     }
@@ -104,6 +109,10 @@ public class MFDTailboard extends Activity implements
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static Context getContext() {
+        return mContext;
     }
 
     // TODO implement dark / light themeing via settings
