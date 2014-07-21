@@ -8,6 +8,16 @@
     android:orientation="vertical"
     android:gravity="center_vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/calendar_header"
+        android:id="@+id/calendar_header"
+        android:layout_weight="0"
+        android:gravity="center_horizontal"
+        android:background="@android:color/background_dark"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="18sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

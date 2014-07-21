@@ -1,19 +1,39 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/todo_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="1dp"
-    android:layout_weight="1"
     android:background="@android:color/white"
-    tools:context="com.corridor9design.mfdtailboard.todo.Todo">
+    android:layout_weight="1"
+    tools:context="com.corridor9design.mfdtailboard.todo.Todo"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal"
-        android:text="@string/todo_hello_string"
-        android:textSize="25dp" />
+        android:layout_height="wrap_content"
+        android:text="@string/todo_header"
+        android:id="@+id/todo_header"
+        android:layout_weight="0"
+        android:gravity="center_horizontal"
+        android:background="@android:color/background_dark"
+        android:textColor="@android:color/primary_text_dark"
+        android:textSize="18sp" />
 
-</FrameLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:id="@+id/todo_scrollView"
+        android:fillViewport="true"
+        android:layout_weight="7">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/todo_hello_string"
+            android:textSize="25dp" />
+    </ScrollView>
+
+</LinearLayout>

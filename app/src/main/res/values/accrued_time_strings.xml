@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="accrued_time_header">Accrued Time</string>
     <string name="accrued_time_hello_string">Hello: Accrued Time</string>
 
 </resources>

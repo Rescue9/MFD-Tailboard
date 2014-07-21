@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="calendar_header">Calendar</string>
     <string name="next_scheduled_label">Next Scheduled</string>
     <string name="remaining_label">Remaining</string>
     <string name="remaining_count">1</string>
