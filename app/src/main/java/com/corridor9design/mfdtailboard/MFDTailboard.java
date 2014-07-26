@@ -230,10 +230,15 @@ public class MFDTailboard extends Activity implements
     }
 
     public void onCallbackFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Callback.newInstance("Callback Fragment", "CallFrag"), TAG + " switched Callback to fullscreen")
-                .addToBackStack("Fullscreen Callback")
-                .commit();
+        String callbackViewParent = findViewById(R.id.callback_fragment).getParent().toString();
+        //Log.d("FindViewByID(calendar_callback_container)", callbackViewParent);
+
+        if (callbackViewParent.contains("id/calendar_callback_container")) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.MFDTailboardContainer, Callback.newInstance("Callback Fragment", "CallFrag"), TAG + " switched Callback to fullscreen")
+                    .addToBackStack("Fullscreen Callback")
+                    .commit();
+        }
 
     }
 
