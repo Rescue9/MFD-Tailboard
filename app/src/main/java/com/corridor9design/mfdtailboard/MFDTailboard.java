@@ -156,42 +156,6 @@ public class MFDTailboard extends Activity implements
         return secondarySectionDrawables;
     }
 
-    public void onCalendarFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer,Calendar.newInstance("Calendar Fragment", "CalFrag"))
-                .addToBackStack("Fullscreen Calendar")
-                .commit();
-    }
-
-    public void onCallbackFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Callback.newInstance("Callback Fragment", "CallFrag"), TAG + " switched Callback to fullscreen")
-                .addToBackStack("Fullscreen Callback")
-                .commit();
-
-    }
-
-    public void onCalculatorFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
-                .addToBackStack("Fullscreen Calculator")
-                .commit();
-    }
-
-    public void onAccruedTimeFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccruedTime Fragment", "AccrFrag"), TAG + " switched AccruedTime to fullscreen")
-                .addToBackStack("Fullscreen AccruedTime")
-                .commit();
-    }
-
-    public void onTodoFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Todo.newInstance("Todo Fragment", "TodoFrag"), TAG + " switched Todo to fullscreen")
-                .addToBackStack("Fullscreen Todo")
-                .commit();
-    }
-
     public void googleNavMenuDrawer() {
         //Instance the GoogleNavigationDrawer and set the LayoutParams
         mDrawer = new GoogleNavigationDrawer(mContext);
@@ -257,4 +221,42 @@ public class MFDTailboard extends Activity implements
         //Attach the DrawerListener
         mDrawer.setDrawerListener(mDrawerToggle);
     }
+
+    public void onCalendarFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer,Calendar.newInstance("Calendar Fragment", "CalFrag"))
+                .addToBackStack("Fullscreen Calendar")
+                .commit();
+    }
+
+    public void onCallbackFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, Callback.newInstance("Callback Fragment", "CallFrag"), TAG + " switched Callback to fullscreen")
+                .addToBackStack("Fullscreen Callback")
+                .commit();
+
+    }
+
+    public void onCalculatorFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
+                .addToBackStack("Fullscreen Calculator")
+                .commit();
+    }
+
+    public void onAccruedTimeFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccruedTime Fragment", "AccrFrag"), TAG + " switched AccruedTime to fullscreen")
+                .addToBackStack("Fullscreen AccruedTime")
+                .commit();
+    }
+
+    public void onTodoFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, Todo.newInstance("Todo Fragment", "TodoFrag"), TAG + " switched Todo to fullscreen")
+                .addToBackStack("Fullscreen Todo")
+                .commit();
+    }
+
+
 }
