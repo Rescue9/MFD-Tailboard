@@ -223,40 +223,58 @@ public class MFDTailboard extends Activity implements
     }
 
     public void onCalendarFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer,Calendar.newInstance("Calendar Fragment", "CalFrag"))
-                .addToBackStack("Fullscreen Calendar")
-                .commit();
+        String callendarViewParent = findViewById(R.id.calendar_fragment).getParent().toString();
+
+        if (callendarViewParent.contains("id/calendar_callback_container")) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.MFDTailboardContainer, Calendar.newInstance("CalFrag", "CalFull"))
+                    .addToBackStack("Fullscreen Calendar")
+                    .commit();
+
+        }
     }
 
     public void onCallbackFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Callback.newInstance("Callback Fragment", "CallFrag"), TAG + " switched Callback to fullscreen")
-                .addToBackStack("Fullscreen Callback")
-                .commit();
+        String callbackViewParent = findViewById(R.id.callback_fragment).getParent().toString();
 
+        if (callbackViewParent.contains("id/calendar_callback_container")) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.MFDTailboardContainer, Callback.newInstance("CallFrag", "CallFull"))
+                    .addToBackStack("Fullscreen Callback")
+                    .commit();
+        }
     }
 
     public void onCalculatorFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("Calculator Fragment", "CalcFrag"), TAG + " switched Calculator to fullscreen")
-                .addToBackStack("Fullscreen Calculator")
-                .commit();
+        String calculatorViewParent = findViewById(R.id.calculator_fragment).getParent().toString();
+
+        if (calculatorViewParent.contains("id/calculator_container")) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.MFDTailboardContainer, Calculator.newInstance("CalcFrag", "CalcFull"))
+                    .addToBackStack("Fullscreen Calculator")
+                    .commit();
+        }
     }
 
     public void onAccruedTimeFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccruedTime Fragment", "AccrFrag"), TAG + " switched AccruedTime to fullscreen")
-                .addToBackStack("Fullscreen AccruedTime")
-                .commit();
+        String accruedTimeViewParent = findViewById(R.id.accrued_time_fragment).getParent().toString();
+
+        if (accruedTimeViewParent.contains("id/accrued_time_todo_container")) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccrFrag", "AccrFull"))
+                    .addToBackStack("Fullscreen AccruedTime")
+                    .commit();
+        }
     }
 
     public void onTodoFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, Todo.newInstance("Todo Fragment", "TodoFrag"), TAG + " switched Todo to fullscreen")
-                .addToBackStack("Fullscreen Todo")
-                .commit();
+        String todoViewParent = findViewById(R.id.todo_fragment).getParent().toString();
+
+        if (todoViewParent.contains("accrued_time_todo_container")) {
+            getFragmentManager().beginTransaction()
+                    .replace(R.id.MFDTailboardContainer, Todo.newInstance("TodoFrag", "TodoFull"))
+                    .addToBackStack("Fullscreen Todo")
+                    .commit();
+        }
     }
-
-
 }
