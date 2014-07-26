@@ -67,7 +67,9 @@ public class Calculator extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_calculator, container, false);
-        view.setOnClickListener(this);
+        if (mParam2 != "CalcFull") {
+            view.setOnClickListener(this);
+        }
 
         return view;
     }

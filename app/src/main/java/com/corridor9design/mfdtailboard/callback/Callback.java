@@ -67,7 +67,9 @@ public class Callback extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_callback, container, false);
-        view.setOnClickListener(this);
+        if (mParam2 != "CallFull") {
+            view.setOnClickListener(this);
+        }
 
         return view;
     }

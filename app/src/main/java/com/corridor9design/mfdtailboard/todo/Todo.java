@@ -67,7 +67,9 @@ public class Todo extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_todo, container, false);
-        view.setOnClickListener(this);
+        if (mParam2 != "TodoFull") {
+            view.setOnClickListener(this);
+        }
 
         return view;
     }

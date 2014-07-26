@@ -67,7 +67,9 @@ public class AccruedTime extends Fragment implements  View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_accrued_time, container, false);
-        view.setOnClickListener(this);
+        if (mParam2 != "AccrFull") {
+            view.setOnClickListener(this);
+        }
 
         return view;
     }

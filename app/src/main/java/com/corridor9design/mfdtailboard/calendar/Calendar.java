@@ -73,8 +73,10 @@ public class Calendar extends Fragment implements TextView.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_calendar, container, false);
 
-        nextScheduledDate = (TextView) view.findViewById(R.id.NextScheduledDate);
-        nextScheduledDate.setOnClickListener(this);
+        if (mParam2 != "CalFull") {
+            view.setOnClickListener(this);
+        }
+
         // Inflate the layout for this fragment
         return view;
     }
