@@ -26,6 +26,9 @@
         android:layout_height="match_parent"
         android:text="@string/callback_hello_string"
         android:gravity="center_vertical|center_horizontal"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:paddingTop="@dimen/fragment_vertical_margin"
+        android:paddingRight="@dimen/fragment_horizontal_margin"
+        android:paddingLeft="@dimen/fragment_horizontal_margin" />
 
 </LinearLayout>
