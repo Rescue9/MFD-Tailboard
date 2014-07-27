@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="callback_cycle_unscheduled_days">#fff3f3f3</color>
+    <color name="callback_cycle_scheduled_days">#cc000000</color>
+    <color name="callback_cycle_eligible_day">#6600ff00</color>
+    <color name="callback_cycle_uneligible_day">#66ff0000</color>
+    <color name="callback_cycle_callback_day">#660044dd</color>
+</resources>

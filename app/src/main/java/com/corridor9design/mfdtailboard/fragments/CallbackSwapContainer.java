@@ -10,15 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.corridor9design.mfdtailboard.R;
-import com.corridor9design.mfdtailboard.calendar.Calendar;
 import com.corridor9design.mfdtailboard.callbackSwap.Callback;
 import com.corridor9design.mfdtailboard.callbackSwap.Swap;
 
 /**
  * A simple {@link Fragment} subclass.
+ * Use the {@link CallbackSwapContainer#newInstance} factory method to
+ * create an instance of this fragment.
  *
  */
-public class CalendarCallbackContainer extends Fragment {
+public class CallbackSwapContainer extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,12 +29,12 @@ public class CalendarCallbackContainer extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public CalendarCallbackContainer() {
+    public CallbackSwapContainer() {
         // Required empty public constructor
     }
 
-    public static CalendarCallbackContainer newInstance(String param1, String param2) {
-        CalendarCallbackContainer fragment = new CalendarCallbackContainer();
+    public static CallbackSwapContainer newInstance(String param1, String param2) {
+        CallbackSwapContainer fragment = new CallbackSwapContainer();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -49,18 +50,18 @@ public class CalendarCallbackContainer extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View calendar_callback_container = inflater.inflate(R.layout.fragment_calendar_callback_container, container, false);
-        calendar_callback_container.setId(R.id.calendar_callback_container);
+
+        View callback_swap_container = inflater.inflate(R.layout.fragment_callback_swap_container, container, false);
+        callback_swap_container.setId(R.id.callback_swap_container);
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 
-        ft.add(calendar_callback_container.getId(), Calendar.newInstance("Calendar Fragment", "CalFrag"));
-        ft.add(calendar_callback_container.getId(), CallbackSwapContainer.newInstance("CallbackSwap Fragment", "CallSwapFrag"));
-
+        ft.add(callback_swap_container.getId(), Callback.newInstance("Callback Fragment", "CallFrag"));
+        ft.add(callback_swap_container.getId(), Swap.newInstance("Swap Fragment", "SwapFrag"));
 
         ft.commit();
 
-        return calendar_callback_container;
+        return callback_swap_container;
     }
 
 

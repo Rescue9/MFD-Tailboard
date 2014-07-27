@@ -3,5 +3,26 @@
 
     <string name="callback_header">Callback</string>
     <string name="callback_hello_string">Hello: Callback</string>
+    <string name="callback_accrued">Accrued Annually</string>
+    <string name="callback_accrued_amount">25</string>
+    <string name="callback_this_month">This Month</string>
+    <string name="callback_this_month_amount">4</string>
+    <string name="callback_cycle_1">10</string>
+    <string name="callback_cycle_2">11</string>
+    <string name="callback_cycle_3">12</string>
+    <string name="callback_cycle_4">13</string>
+    <string name="callback_cycle_5">14</string>
+    <string name="callback_cycle_6">15</string>
+    <string name="callback_cycle_7">16</string>
+    <string name="callback_last_sickday">Last Sick Day: April 15, 2014</string>
+    <string name="callback_swap_schedule_label">Swap Schedule</string>
+    <string name="callback_swap_for">For</string>
+    <string name="callback_swap_from">From</string>
+    <string name="callback_swap_for_name">A. Buskov</string>
+    <string name="callback_swap_for_date">July 31, 2014</string>
+    <string name="callback_swap_for_time">16:00 - 07:00</string>
+    <string name="callback_swap_from_name">A. Calvert</string>
+    <string name="callback_swap_from_date">Aug 18, 2014</string>
+    <string name="callback_swap_from_time">07:00 - 07:00</string>
 
 </resources>
