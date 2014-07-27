@@ -20,7 +20,9 @@ import android.widget.Toast;
 import com.corridor9design.mfdtailboard.accruedTime.AccruedTime;
 import com.corridor9design.mfdtailboard.calculator.Calculator;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
-import com.corridor9design.mfdtailboard.callback.Callback;
+import com.corridor9design.mfdtailboard.callbackSwap.Callback;
+import com.corridor9design.mfdtailboard.callbackSwap.Swap;
+import com.corridor9design.mfdtailboard.fragments.CallbackSwapContainer;
 import com.corridor9design.mfdtailboard.fragments.Overview;
 import com.corridor9design.mfdtailboard.settings.Settings;
 import com.corridor9design.mfdtailboard.todo.Todo;
@@ -33,7 +35,8 @@ public class MFDTailboard extends Activity implements
         Callback.OnFragmentInteractionListener,
         Calculator.OnFragmentInteractionListener,
         AccruedTime.OnFragmentInteractionListener,
-        Todo.OnFragmentInteractionListener {
+        Todo.OnFragmentInteractionListener,
+        Swap.OnFragmentInteractionListener {
 
     // debug tag for logging
     public static final String TAG = "MFDTailboard";
@@ -231,9 +234,16 @@ public class MFDTailboard extends Activity implements
 
     public void onCallbackFragmentInteraction(Uri uri) {
         getFragmentManager().beginTransaction()
-            .replace(R.id.MFDTailboardContainer, Callback.newInstance("CallFrag", "CallFull"))
-            .addToBackStack("Fullscreen Callback")
-            .commit();
+                .replace(R.id.MFDTailboardContainer, CallbackSwapContainer.newInstance("CallFrag", "CallFull"))
+                .addToBackStack("Fullscreen Callback")
+                .commit();
+    }
+
+    public void onSwapFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, CallbackSwapContainer.newInstance("SwapFrag", "SwapFull"))
+                .addToBackStack("Fullscreen Callback")
+                .commit();
     }
 
     public void onCalculatorFragmentInteraction(Uri uri) {

@@ -2,10 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/callback_fragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="1dp"
-    android:layout_weight="1"
-    tools:context="com.corridor9design.mfdtailboard.callback.Callback"
+    tools:context="com.corridor9design.mfdtailboard.callbackSwap.Callback"
     android:background="@android:color/white"
     android:orientation="vertical">
 
@@ -27,7 +26,9 @@
         android:paddingLeft="@dimen/fragment_horizontal_margin"
         android:paddingTop="@dimen/fragment_vertical_margin"
         android:paddingRight="@dimen/fragment_horizontal_margin"
-        android:paddingBottom="@dimen/fragment_vertical_margin">
+        android:paddingBottom="@dimen/fragment_vertical_margin"
+        android:weightSum="3"
+        android:gravity="center_vertical">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -86,7 +87,8 @@
             android:id="@+id/TopLine1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/black" />
+            android:background="@android:color/darker_gray"
+            android:layout_marginTop="@dimen/fragment_vertical_margin" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -95,16 +97,15 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="@string/callback_cycle_1"
                 android:id="@+id/callback_cycle_1"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:textSize="16sp"
                 android:layout_gravity="center_vertical"
-                android:textColor="@color/callback_cycle_unscheduled_days"
-                android:background="@color/callback_cycle_eligible_day" />
+                android:background="@color/callback_cycle_unscheduled_days" />
 
             <View
                 android:id="@+id/VerticalLine1"
@@ -118,10 +119,11 @@
                 android:id="@+id/callback_cycle_2"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:clickable="true"
+                android:clickable="false"
                 android:textSize="30sp"
                 android:layout_gravity="center_vertical"
-                android:background="@color/callback_cycle_scheduled_days" />
+                android:background="@color/callback_cycle_scheduled_days"
+                android:textColor="@android:color/primary_text_dark" />
 
             <View
                 android:id="@+id/VerticalLine2"
@@ -131,14 +133,13 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="@string/callback_cycle_3"
                 android:id="@+id/callback_cycle_3"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:textSize="16sp"
-                android:textColor="@color/callback_cycle_unscheduled_days"
                 android:layout_gravity="center_vertical"
                 android:background="@color/callback_cycle_callback_day" />
 
@@ -155,10 +156,11 @@
                 android:id="@+id/callback_cycle_4"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:clickable="true"
+                android:clickable="false"
                 android:textSize="30sp"
                 android:layout_gravity="center_vertical"
-                android:background="@color/callback_cycle_scheduled_days" />
+                android:background="@color/callback_cycle_scheduled_days"
+                android:textColor="@android:color/primary_text_dark" />
 
             <View
                 android:id="@+id/VerticalLine4"
@@ -168,14 +170,13 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="@string/callback_cycle_5"
                 android:id="@+id/callback_cycle_5"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:textSize="16sp"
-                android:textColor="@color/callback_cycle_unscheduled_days"
                 android:layout_gravity="center_vertical"
                 android:background="@color/callback_cycle_uneligible_day" />
 
@@ -192,10 +193,11 @@
                 android:id="@+id/callback_cycle_6"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:clickable="true"
+                android:clickable="false"
                 android:textSize="30sp"
                 android:layout_gravity="center_vertical"
-                android:background="@color/callback_cycle_scheduled_days" />
+                android:background="@color/callback_cycle_scheduled_days"
+                android:textColor="@android:color/primary_text_dark" />
 
             <View
                 android:id="@+id/VerticalLine6"
@@ -205,14 +207,13 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="@string/callback_cycle_7"
                 android:id="@+id/callback_cycle_7"
                 android:layout_weight="1"
-                android:gravity="center_horizontal"
+                android:gravity="center_vertical|center_horizontal"
                 android:clickable="true"
                 android:textSize="16sp"
-                android:textColor="@color/callback_cycle_unscheduled_days"
                 android:layout_gravity="center_vertical"
                 android:background="@color/callback_cycle_eligible_day" />
         </LinearLayout>
@@ -221,7 +222,18 @@
             android:id="@+id/BottomLine1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@android:color/black" />
+            android:background="@android:color/darker_gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/callback_last_sickday"
+            android:id="@+id/callback_last_sick"
+            android:layout_gravity="center_horizontal"
+            android:textSize="16sp"
+            android:paddingTop="@dimen/fragment_vertical_margin"
+            android:paddingBottom="@dimen/fragment_vertical_margin" />
+
 
     </LinearLayout>
 
