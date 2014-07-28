@@ -80,7 +80,6 @@
                     android:id="@+id/callback_this_month_amount"
                     android:textSize="22sp"
                     android:layout_gravity="right"
-                    android:background="@color/callback_this_month_amount_red"
                     android:paddingLeft="@dimen/fragment_horizontal_margin"
                     android:paddingRight="@dimen/fragment_horizontal_margin" />
             </LinearLayout>

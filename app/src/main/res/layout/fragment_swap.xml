@@ -12,8 +12,8 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/callback_swap_schedule_label"
-        android:id="@+id/callback_swap_schedule"
+        android:text="@string/swap_schedule_label"
+        android:id="@+id/swap_schedule"
         android:layout_gravity="center_horizontal"
         android:textSize="18sp"
         android:gravity="center_horizontal"
@@ -36,15 +36,15 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/callback_swap_for"
-                android:id="@+id/callback_swap_for"
+                android:text="@string/swap_for"
+                android:id="@+id/swap_for"
                 android:layout_weight="1" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/callback_swap_from"
-                android:id="@+id/callback_swap_from"
+                android:text="@string/swap_from"
+                android:id="@+id/swap_from"
                 android:layout_weight="1"
                 android:gravity="right" />
         </LinearLayout>
@@ -58,29 +58,31 @@
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/calendar_c_shift"
+                android:clickable="true">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/callback_swap_for_name"
-                    android:id="@+id/callback_swap_for_name"
+                    android:text="@string/swap_for_name"
+                    android:id="@+id/swap_for_name"
                     android:layout_gravity="center_horizontal"
                     android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/callback_swap_for_date"
-                    android:id="@+id/callback_swap_for_date"
+                    android:text="@string/swap_for_date"
+                    android:id="@+id/swap_for_date"
                     android:layout_gravity="center_horizontal"
                     android:textSize="24sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/callback_swap_for_time"
-                    android:id="@+id/callback_swap_for_time"
+                    android:text="@string/swap_for_time"
+                    android:id="@+id/swap_for_time"
                     android:layout_gravity="center_horizontal"
                     android:textSize="20sp" />
             </LinearLayout>
@@ -89,35 +91,40 @@
                 android:id="@+id/swap_to_from_separator"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="@android:color/black" />
+                android:background="@android:color/black"
+                android:layout_marginLeft="@dimen/fragment_horizontal_margin"
+                android:layout_marginRight="@dimen/fragment_horizontal_margin" />
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@color/calendar_a_shift"
+                android:longClickable="true"
+                android:clickable="true">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/callback_swap_from_name"
-                    android:id="@+id/callback_swap_from_name"
+                    android:text="@string/swap_from_name"
+                    android:id="@+id/swap_from_name"
                     android:layout_gravity="center_horizontal"
                     android:textSize="20sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/callback_swap_from_date"
-                    android:id="@+id/callback_swap_from_date"
+                    android:text="@string/swap_from_date"
+                    android:id="@+id/swap_from_date"
                     android:layout_gravity="center_horizontal"
                     android:textSize="24sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/callback_swap_from_time"
-                    android:id="@+id/callback_swap_from_time"
+                    android:text="@string/swap_from_time"
+                    android:id="@+id/swap_from_time"
                     android:layout_gravity="center_horizontal"
                     android:textSize="20sp" />
             </LinearLayout>
