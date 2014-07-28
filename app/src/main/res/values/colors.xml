@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+
+    <color name="calendar_a_shift">#bbff0000</color>
+    <color name="calendar_b_shift">#bb0044dd</color>
+    <color name="calendar_c_shift">#bb00ff00</color>
+    <color name="callback_this_month_amount_yellow">#aaffd400</color>
+    <color name="callback_this_month_amount_red">#ccb70000</color>
     <color name="callback_cycle_unscheduled_days">#fff3f3f3</color>
     <color name="callback_cycle_scheduled_days">#cc000000</color>
-    <color name="callback_cycle_eligible_day">#6600ff00</color>
-    <color name="callback_cycle_uneligible_day">#66ff0000</color>
-    <color name="callback_cycle_callback_day">#660044dd</color>
+    <color name="callback_cycle_eligible_day">#8850ff00</color>
+    <color name="callback_cycle_uneligible_day">#99ff5000</color>
+    <color name="callback_cycle_callback_day">#88209ff6</color>
 </resources>

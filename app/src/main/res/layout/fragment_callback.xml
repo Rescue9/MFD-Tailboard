@@ -55,7 +55,8 @@
                     android:text="@string/callback_accrued_amount"
                     android:id="@+id/callback_accrued_amount"
                     android:textSize="22sp"
-                    android:paddingLeft="@dimen/activity_horizontal_margin" />
+                    android:paddingLeft="@dimen/fragment_horizontal_margin"
+                    android:paddingRight="@dimen/fragment_horizontal_margin" />
             </LinearLayout>
 
             <LinearLayout
@@ -77,9 +78,11 @@
                     android:layout_height="wrap_content"
                     android:text="@string/callback_this_month_amount"
                     android:id="@+id/callback_this_month_amount"
-                    android:layout_gravity="right"
                     android:textSize="22sp"
-                    android:paddingRight="@dimen/activity_horizontal_margin" />
+                    android:layout_gravity="right"
+                    android:background="@color/callback_this_month_amount_red"
+                    android:paddingLeft="@dimen/fragment_horizontal_margin"
+                    android:paddingRight="@dimen/fragment_horizontal_margin" />
             </LinearLayout>
         </LinearLayout>
 
