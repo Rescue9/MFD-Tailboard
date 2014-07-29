@@ -12,8 +12,8 @@ Current source code for this project can be found at my GitHub page [@Rescue9](h
 ------
 
 ###Current Permissions
-Uses Internet: Necessary for advertising (Currently disabled)  
-Access Network State: Necessary for advertising (Currently disabled) 
+Uses Internet: Necessary for advertising (Not yet implemented)  
+Access Network State: Necessary for advertising (Not yet implemented) 
 
 ###Included Libraries
 GoogleNavigationDrawerMenu by [@Arasthel](https://github.com/Arasthel/GoogleNavigationDrawerMenu)
