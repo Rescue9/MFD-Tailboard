@@ -95,18 +95,55 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:weightSum="7">
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/callback_cycle_1"
-                android:id="@+id/callback_cycle_1"
-                android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal"
-                android:textSize="16sp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/callback_cycle_unscheduled_days" />
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/callback_cycle_1"
+                    android:id="@+id/callback_cycle_1"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@color/callback_cycle_unscheduled_days" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_available_1"
+                    android:layout_centerInParent="true"
+                    android:alpha=".5"
+                    android:src="@drawable/ic_callback_available_light"
+                    android:contentDescription="@string/callback_available_description"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_not_available_1"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_callback_not_available_light"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_not_available_description"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_taken_1"
+                    android:layout_centerInParent="true"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_taken_description"
+                    android:src="@drawable/ic_callback_taken_light"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
 
             <View
                 android:id="@+id/VerticalLine1"
@@ -114,16 +151,15 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/black" />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/callback_cycle_2"
                 android:id="@+id/callback_cycle_2"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
                 android:textSize="30sp"
-                android:layout_gravity="center_vertical"
                 android:background="@color/callback_cycle_scheduled_days"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_dark"
+                android:gravity="center_horizontal"
+                android:layout_weight="1" />
 
             <View
                 android:id="@+id/VerticalLine2"
@@ -131,16 +167,50 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/callback_cycle_3"
-                android:id="@+id/callback_cycle_3"
-                android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal"
-                android:textSize="16sp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/callback_cycle_callback_day" />
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/callback_cycle_3"
+                    android:id="@+id/callback_cycle_3"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_available_2"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_callback_available_light"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_available_description"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_not_available_2"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_callback_not_available_light"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_not_available_description"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_taken_2"
+                    android:layout_centerInParent="true"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_taken_description"
+                    android:src="@drawable/ic_callback_taken_light" />
+
+            </RelativeLayout>
 
             <View
                 android:id="@+id/VerticalLine3"
@@ -149,16 +219,16 @@
                 android:background="@android:color/black" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/callback_cycle_4"
                 android:id="@+id/callback_cycle_4"
-                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:textSize="30sp"
                 android:layout_gravity="center_vertical"
                 android:background="@color/callback_cycle_scheduled_days"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_dark"
+                android:layout_weight="1" />
 
             <View
                 android:id="@+id/VerticalLine4"
@@ -166,16 +236,50 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/callback_cycle_5"
-                android:id="@+id/callback_cycle_5"
-                android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal"
-                android:textSize="16sp"
-                android:layout_gravity="center_vertical"
-                android:background="@color/callback_cycle_uneligible_day" />
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/callback_cycle_5"
+                    android:id="@+id/callback_cycle_5"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_vertical" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_available_3"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_callback_available_light"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_available_description"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_not_available_3"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_callback_not_available_light"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_not_available_description" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_taken_3"
+                    android:layout_centerInParent="true"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_taken_description"
+                    android:src="@drawable/ic_callback_taken_light"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
 
             <View
                 android:id="@+id/VerticalLine5"
@@ -184,16 +288,16 @@
                 android:background="@android:color/black" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/callback_cycle_6"
                 android:id="@+id/callback_cycle_6"
-                android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:textSize="30sp"
                 android:layout_gravity="center_vertical"
                 android:background="@color/callback_cycle_scheduled_days"
-                android:textColor="@android:color/primary_text_dark" />
+                android:textColor="@android:color/primary_text_dark"
+                android:layout_weight="1" />
 
             <View
                 android:id="@+id/VerticalLine6"
@@ -201,15 +305,51 @@
                 android:layout_height="match_parent"
                 android:background="@android:color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="@string/callback_cycle_7"
-                android:id="@+id/callback_cycle_7"
-                android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal"
-                android:layout_gravity="center_vertical"
-                android:background="@color/callback_cycle_eligible_day" />
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@string/callback_cycle_7"
+                    android:id="@+id/callback_cycle_7"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_available_4"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_callback_available_light"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_available_description" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_not_available_4"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_callback_not_available_light"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_not_available_description"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/callback_taken_4"
+                    android:layout_centerInParent="true"
+                    android:alpha=".5"
+                    android:contentDescription="@string/callback_taken_description"
+                    android:src="@drawable/ic_callback_taken_light"
+                    android:visibility="invisible" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
         <View

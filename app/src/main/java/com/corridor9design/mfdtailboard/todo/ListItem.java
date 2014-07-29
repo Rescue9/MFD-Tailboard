@@ -14,7 +14,7 @@ public class ListItem extends AelvListItem{
     public ListItem(String text) {
         super();
         this.text = text;
-        this.drawable = R.drawable.ic_list_chevron_bottom_10dp_light;
+        this.drawable = R.drawable.ic_list_chevron_down_light;
     }
 
     public String getText() {

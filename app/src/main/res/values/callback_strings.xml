@@ -15,5 +15,8 @@
     <string name="callback_cycle_6">15</string>
     <string name="callback_cycle_7">16</string>
     <string name="callback_last_sickday">Last Sick Day: April 15, 2014</string>
+    <string name="callback_available_description">Callback Available</string>
+    <string name="callback_not_available_description">Callback Not Available</string>
+    <string name="callback_taken_description">Callback Taken</string>
 
 </resources>

@@ -97,7 +97,7 @@ public class Todo extends Fragment implements View.OnClickListener {
             @Override
             public void onEndAnimation(int position) {
                 mListItems.get(position).setDrawable(mListItems.get(position)
-                        .isOpen() ? R.drawable.ic_list_chevron_top_10dp_dark : R.drawable.ic_list_chevron_bottom_10dp_light);
+                        .isOpen() ? R.drawable.ic_list_chevron_up_light : R.drawable.ic_list_chevron_down_light);
             }
         });
 

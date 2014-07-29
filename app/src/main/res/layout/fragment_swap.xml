@@ -58,8 +58,7 @@
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/calendar_c_shift">
+                android:layout_weight="1" >
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,8 +97,7 @@
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/calendar_a_shift">
+                android:layout_weight="1" >
 
                 <TextView
                     android:layout_width="wrap_content"
