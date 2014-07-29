@@ -7,8 +7,16 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
+
 
 import com.corridor9design.mfdtailboard.R;
+import com.leocardz.aelv.library.Aelv;
+import com.leocardz.aelv.library.AelvCustomAction;
+
+import java.util.ArrayList;
 
 
 /**
@@ -31,6 +39,9 @@ public class Todo extends Fragment implements View.OnClickListener {
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    // declare todo item list
+    private ArrayList<ListItem> mListItems;
 
     /**
      * Use this factory method to create a new instance of
@@ -70,6 +81,32 @@ public class Todo extends Fragment implements View.OnClickListener {
         if (mParam2 != "TodoFull") {
             view.setOnClickListener(this);
         }
+
+        ListView mListView = (ListView) view.findViewById(R.id.todo_list);
+
+        mListItems = new ArrayList<ListItem>();
+        mockItems();
+
+        ListAdapter adapter = new ListAdapter(getActivity(), R.layout.todo_list_item, mListItems);
+
+        mListView.setAdapter(adapter);
+
+        // Setup
+        // Aelv aelv = new Aelv(true, 200, listItems, listView, adapter);
+        final Aelv aelv = new Aelv(true, 200, mListItems, mListView, adapter, new AelvCustomAction() {
+            @Override
+            public void onEndAnimation(int position) {
+                mListItems.get(position).setDrawable(mListItems.get(position)
+                        .isOpen() ? R.drawable.ic_list_chevron_top_10dp_dark : R.drawable.ic_list_chevron_bottom_10dp_light);
+            }
+        });
+
+        mListView.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                aelv.toggle(view, position);
+            }
+        });
 
         return view;
     }
@@ -115,4 +152,50 @@ public class Todo extends Fragment implements View.OnClickListener {
         public void onTodoFragmentInteraction(Uri uri);
     }
 
+    // mock list items for testing
+    // TODO: replace with working implementation for user input items.
+    private void mockItems() {
+        final int COLLAPSED_HEIGHT_1 = 50, COLLAPSED_HEIGHT_2 = 100, COLLAPSED_HEIGHT_3 = 150;
+        final int EXPANDED_HEIGHT_1 = 150, EXPANDED_HEIGHT_2 = 250, EXPANDED_HEIGHT_3 = 350, EXPANDED_HEIGHT_4 = 400;
+
+        ListItem listItem = new ListItem("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_1, EXPANDED_HEIGHT_1, false);
+        mListItems.add(listItem);
+
+        listItem = new ListItem("Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_2, EXPANDED_HEIGHT_2, false);
+        mListItems.add(listItem);
+
+        listItem = new ListItem("Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_3, EXPANDED_HEIGHT_3, false);
+        mListItems.add(listItem);
+
+        listItem = new ListItem("Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_2, EXPANDED_HEIGHT_4, false);
+        mListItems.add(listItem);
+
+        listItem = new ListItem("At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_1, EXPANDED_HEIGHT_4, false);
+        mListItems.add(listItem);
+
+        listItem = new ListItem("Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_2, EXPANDED_HEIGHT_4, false);
+        mListItems.add(listItem);
+
+        listItem = new ListItem("Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_3, EXPANDED_HEIGHT_3, false);
+        mListItems.add(listItem);
+
+        listItem = new ListItem("Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.");
+        // setUp IS REQUIRED
+        listItem.setUp(COLLAPSED_HEIGHT_1, EXPANDED_HEIGHT_4, false);
+        mListItems.add(listItem);
+    }
 }

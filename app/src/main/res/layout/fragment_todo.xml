@@ -21,23 +21,13 @@
         android:textColor="@android:color/primary_text_dark"
         android:textSize="18sp" />
 
-    <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:id="@+id/todo_scrollView"
-        android:fillViewport="true"
-        android:layout_weight="7"
-        android:paddingBottom="@dimen/fragment_vertical_margin"
-        android:paddingTop="@dimen/fragment_vertical_margin"
-        android:paddingLeft="@dimen/fragment_horizontal_margin"
-        android:paddingRight="@dimen/fragment_horizontal_margin">
+    <ListView
+        android:id="@+id/todo_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/black"
+        android:dividerHeight="3dp" >
+    </ListView>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="@string/todo_hello_string"
-            android:textSize="25dp" />
-    </ScrollView>
 
 </LinearLayout>
