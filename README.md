@@ -17,3 +17,4 @@ Access Network State: Necessary for advertising (Not yet implemented)
 
 ###Included Libraries
 GoogleNavigationDrawerMenu by [@Arasthel](https://github.com/Arasthel/GoogleNavigationDrawerMenu)
+Animated-Expanding-ListView by [@LeonardoCardoso](https://github.com/LeonardoCardoso/Animated-Expanding-ListView)
