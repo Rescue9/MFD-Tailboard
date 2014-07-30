@@ -74,42 +74,66 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal">
+                android:layout_height="0dp"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:baselineAligned="false">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/previous_date_shift"
-                    android:id="@+id/calendar_previous_date_shift"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
                     android:layout_gravity="center_vertical"
-                    android:textSize="40sp"
-                    android:background="@color/calendar_b_shift"
-                    android:gravity="right"
-                    android:layout_marginRight="20dp"
-                    android:padding="5dp" />
+                    android:background="@color/calendar_b_shift">
 
-                <TextView
-                    android:id="@+id/calendar_next_scheduled_date"
-                    android:layout_width="wrap_content"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/previous_date_shift"
+                        android:id="@+id/calendar_previous_date_shift"
+                        android:layout_gravity="center_vertical"
+                        android:textSize="40sp"
+                        android:gravity="right"
+                        android:padding="5dp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:background="@color/calendar_c_shift">
+
+                    <TextView
+                        android:id="@+id/calendar_next_scheduled_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/next_scheduled_date"
+                        android:textSize="80sp"
+                        android:gravity="center_horizontal" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|left"
                     android:layout_gravity="center_vertical"
-                    android:text="@string/next_scheduled_date"
-                    android:textSize="102sp"
-                    android:gravity="center_horizontal"
-                    android:background="@color/calendar_c_shift" />
+                    android:background="@color/calendar_a_shift">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/next_date_shift"
-                    android:id="@+id/calendar_next_date_shift"
-                    android:layout_gravity="center_vertical|left"
-                    android:gravity="left"
-                    android:textSize="40sp"
-                    android:background="@color/calendar_a_shift"
-                    android:layout_marginLeft="20dp"
-                    android:padding="5dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/next_date_shift"
+                        android:id="@+id/calendar_next_date_shift"
+                        android:layout_gravity="center_vertical|left"
+                        android:gravity="left"
+                        android:textSize="40sp"
+                        android:padding="5dp" />
+                </RelativeLayout>
+
             </LinearLayout>
 
             <TextView
