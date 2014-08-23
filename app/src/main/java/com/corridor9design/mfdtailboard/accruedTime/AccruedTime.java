@@ -7,6 +7,7 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.corridor9design.mfdtailboard.R;
 
@@ -74,12 +75,13 @@ public class AccruedTime extends Fragment implements  View.OnClickListener {
         return view;
     }
 
-    /*// TODO: Rename method, update argument and hook method into UI event
+    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
+        Toast.makeText(getActivity(), "TOASTED!!!!", Toast.LENGTH_LONG);
         if (mListener != null) {
             mListener.onAccruedTimeFragmentInteraction(uri);
         }
-    }*/
+    }
 
     @Override
     public void onAttach(Activity activity) {

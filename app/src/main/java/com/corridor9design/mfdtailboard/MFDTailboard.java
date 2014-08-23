@@ -25,6 +25,7 @@ import com.corridor9design.mfdtailboard.callbackSwap.Swap;
 import com.corridor9design.mfdtailboard.fragments.CallbackSwapContainer;
 import com.corridor9design.mfdtailboard.fragments.Overview;
 import com.corridor9design.mfdtailboard.settings.Settings;
+import com.corridor9design.mfdtailboard.todo.TodoFragment;
 
 import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
 
@@ -34,6 +35,8 @@ public class MFDTailboard extends Activity implements
         Callback.OnFragmentInteractionListener,
         Calculator.OnFragmentInteractionListener,
         AccruedTime.OnFragmentInteractionListener,
+        TodoFragment.OnFragmentInteractionListener,
+        TodoFragment.OnTodoItemSelectedListener,
         Swap.OnFragmentInteractionListener {
 
     // debug tag for logging
@@ -256,5 +259,18 @@ public class MFDTailboard extends Activity implements
             .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccrFrag", "AccrFull"))
             .addToBackStack("Fullscreen AccruedTime")
             .commit();
+    }
+
+    @Override
+    public void onTodoFragmentInteraction(String id) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, TodoFragment.newInstance("TodoFrag", "TodoFull"))
+                .addToBackStack("Fullscreen Todo")
+                .commit();
+
+    }
+    @Override
+    public void onTodoItemSelected(int id) {
+        Toast.makeText(this, "TOASTED! " + id, Toast.LENGTH_SHORT).show();
     }
 }
