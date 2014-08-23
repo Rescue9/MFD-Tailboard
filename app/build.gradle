@@ -25,6 +25,5 @@ repositories {
 
 dependencies {
     compile 'com.arasthel:gnavdrawer-library:+'
-    compile 'com.leocardz:aelv:1.1@aar'
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
