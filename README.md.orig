@@ -12,7 +12,18 @@ Current source code for this project can be found at my GitHub page [@Rescue9](h
 ------
 
 ###Current Permissions
+<<<<<<< HEAD
+Uses Internet: Necessary for advertising (Not yet implemented)  
+Access Network State: Necessary for advertising (Not yet implemented) 
+
+###Included Libraries
+GoogleNavigationDrawerMenu by [@Arasthel](https://github.com/Arasthel/GoogleNavigationDrawerMenu)  
+Animated-Expanding-ListView by [@LeonardoCardoso](https://github.com/LeonardoCardoso/Animated-Expanding-ListView)  
+
+
+=======
 None
 ###Included Libraries
 GoogleNavigationDrawerMenu by [@Arasthel](https://github.com/Arasthel/GoogleNavigationDrawerMenu)  
 ListViewAnimations by [@NHaarman](https://github.com/nhaarman/ListViewAnimations)
+>>>>>>> release/UI_Created

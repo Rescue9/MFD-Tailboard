@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="accrued_time_header">Accrued Time</string>
+    <string name="accrued_time_hello_string">Hello: Accrued Time</string>
+    <string name="accrued_time_remaining_label">Remaining Available Time</string>
+    <string name="accrued_time_sick_label">Sick:</string>
+    <string name="accrued_time_sick_amount">24.0</string>
+    <string name="accrued_time_sick_button_full">Full Shift</string>
+    <string name="accrued_time_sick_button_remaining">Remaining</string>
+    <string name="accrued_time_vacation_label">Vacation:</string>
+    <string name="accrued_time_vacation_amount">120.0</string>
+    <string name="accrued_time_vacation_button_12">12 Hr Shift</string>
+    <string name="accrued_time_vacation_button_24">24 Hr Shift</string>
+
+
+</resources>

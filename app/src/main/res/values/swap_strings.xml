@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="swap_schedule_label">Swap Schedule</string>
+    <string name="swap_for">For</string>
+    <string name="swap_from">From</string>
+    <string name="swap_for_name">A. Buskov</string>
+    <string name="swap_for_date">July 31, 2014</string>
+    <string name="swap_for_time">16:00 - 07:00</string>
+    <string name="swap_from_name">A. Calvert</string>
+    <string name="swap_from_date">Aug 18, 2014</string>
+    <string name="swap_from_time">07:00 - 07:00</string>
+
+</resources>

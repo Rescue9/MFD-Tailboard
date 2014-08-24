@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="navigation_main_sections">
+        <item>Overview</item>
+        <item>Calculator</item>
+        <item>Calendar</item>
+        <item>Callbacks</item>
+        <item>Accrued Time</item>
+        <item>Todo</item>
+    </string-array>
+
+    <string-array name="navigation_secondary_sections">
+        <item>Settings</item>
+        <item>Info</item>
+    </string-array>
+
+    <array name="drawable_ids_main_light">
+        <item>@drawable/ic_action_overview_light</item>
+        <item>@drawable/ic_action_calculator_light</item>
+        <item>@drawable/ic_action_calendar_light</item>
+        <item>@drawable/ic_action_callbacks_light</item>
+        <item>@drawable/ic_action_accrued_time_light</item>
+        <item>@drawable/ic_action_todo_light</item>
+    </array>
+
+    <array name="drawable_ids_secondary_light">
+        <item>@drawable/ic_action_settings_light</item>
+        <item>@drawable/ic_action_info_light</item>
+    </array>
+
+    <array name="drawable_ids_main_dark">
+        <item>@drawable/ic_action_overview_dark</item>
+        <item>@drawable/ic_action_calculator_dark</item>
+        <item>@drawable/ic_action_calendar_dark</item>
+        <item>@drawable/ic_action_callbacks_dark</item>
+        <item>@drawable/ic_action_accrued_time_dark</item>
+        <item>@drawable/ic_action_todo_dark</item>
+    </array>
+
+    <array name="drawable_ids_secondary_dark">
+        <item>@drawable/ic_action_settings_dark</item>
+        <item>@drawable/ic_action_info_dark</item>
+    </array>
+
+
+    <string name="navigation_header">
+        <item>Views</item>
+    </string>
+</resources>
