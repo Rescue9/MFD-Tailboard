@@ -84,7 +84,7 @@ public class MFDTailboard extends Activity implements
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.mfdtailboard, menu);
+        //getMenuInflater().inflate(R.menu.mfdtailboard, menu); // disable to remove 3-dot menu
         return true;
     }
 
@@ -105,13 +105,13 @@ public class MFDTailboard extends Activity implements
             }
         }
 
-        // setup typical right menu for more permanent items
+        /*// setup typical 3-dot menu for more permanent items
         // settings, about, contact, etc.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
             mDrawer.openDrawerMenu();
             return true;
-        }
+        }*/
         return super.onOptionsItemSelected(item);
     }
 
