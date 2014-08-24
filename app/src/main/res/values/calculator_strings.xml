@@ -2,6 +2,40 @@
 <resources>
 
     <string name="calculator_header">Calculator</string>
-    <string name="calculator_hello_string">Hello: Calculator</string>
 
+    <string name="base_pay_label">Base pay:</string>
+    <string name="gross_pay_label">Gross pay:</string>
+    <string name="taxes_label">Taxes:</string>
+    <string name="deposit_label">Deposited:</string>
+    <string name="zero_dollar_amount">$0.00</string>
+    <string name="zero_amount">0.00</string>
+    <string name="zero_hint">0</string>
+    <string name="dollar_sign">$</string>
+
+    <string name="rank_label">Current Rank: Probationary FF</string>
+
+    <string name="payperiod_label">Which payday are you calculating for?</string>
+    <string name="pay1_button">1st Pay</string>
+    <string name="pay2_button">2nd Pay</string>
+    <string name="pay3_button">3rd Pay</string>
+
+    <string name="enter_hourly_information">Enter the correct values for each  item:</string>
+
+    <string name="scheduled_days_label">Scheduled Days: 0</string>
+    <string name="overtime_label">Overtime: 0 hrs</string>
+    <string name="holidays_label">Holidays: 0</string>
+
+    <string name ="calculate_button">Calculate</string>
+
+    <!-- Advanced layout resources -->
+    <string name="base_pay_rate_label">Base pay rate:</string>
+    <string name="overtime1_rate_label">Overtime 1 rate:</string>
+    <string name="overtime2_rate_label">Overtime 2 rate:</string>
+    <string name="years_worked_label">Years worked:</string>
+
+    <!-- Toasts for specific payday -->
+    <string name="toast_1st_payday">Longevity included</string>
+    <string name="toast_2nd_payday">Incentive included</string>
+    <string name="toast_3rd_payday">No Longevity or Incentive</string>
+    <string name="number_sign">#</string>
 </resources>
