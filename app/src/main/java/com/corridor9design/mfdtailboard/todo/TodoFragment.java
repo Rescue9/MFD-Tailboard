@@ -22,6 +22,7 @@ import com.nhaarman.listviewanimations.itemmanipulation.dragdrop.OnItemMovedList
 import com.nhaarman.listviewanimations.itemmanipulation.dragdrop.TouchViewDraggableManager;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SimpleSwipeUndoAdapter;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.TimedUndoAdapter;
 
 import java.util.Arrays;
 
@@ -107,7 +108,7 @@ public class TodoFragment extends Fragment implements
 
         // Setup the adapter
         mAdapter = new TodoListAdapter(mContext);
-        SimpleSwipeUndoAdapter simpleSwipeUndoAdapter = new SimpleSwipeUndoAdapter(mAdapter, mContext, new MyOnDismissCallback(mAdapter));
+        SimpleSwipeUndoAdapter simpleSwipeUndoAdapter = new TimedUndoAdapter(mAdapter, mContext, new MyOnDismissCallback(mAdapter));
         AlphaInAnimationAdapter animAdapter = new AlphaInAnimationAdapter(simpleSwipeUndoAdapter);
         animAdapter.setAbsListView(mListView);
         assert animAdapter.getViewAnimator() != null;

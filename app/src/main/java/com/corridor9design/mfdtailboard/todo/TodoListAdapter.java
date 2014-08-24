@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.corridor9design.mfdtailboard.R;
 import com.nhaarman.listviewanimations.ArrayAdapter;
 import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.UndoAdapter;
-import com.nhaarman.listviewanimations.util.Swappable;
+import com.nhaarman.listviewanimations.util.Insertable;
 
 import java.util.List;
 
