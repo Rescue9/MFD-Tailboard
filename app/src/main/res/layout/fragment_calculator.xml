@@ -38,7 +38,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:text="@string/base_pay_label"
+                android:text="@string/calculator_base_pay_label"
                 android:textSize="20sp"
                 android:visibility="visible" />
 
@@ -46,7 +46,7 @@
                 android:id="@+id/gross_pay_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/gross_pay_label"
+                android:text="@string/calculator_gross_pay_label"
                 android:textSize="20sp"
                 android:visibility="visible" />
         </LinearLayout>
@@ -60,9 +60,9 @@
                 android:id="@+id/base_pay_total"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight=".5"
-                android:text="@string/zero_dollar_amount"
+                android:text="@string/calculator_zero_dollar_amount"
                 android:textSize="24sp"
                 android:visibility="visible" />
 
@@ -70,8 +70,8 @@
                 android:id="@+id/gross_pay_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:text="@string/zero_dollar_amount"
+                android:layout_marginRight="15dp"
+                android:text="@string/calculator_zero_dollar_amount"
                 android:textSize="24sp"
                 android:visibility="visible" />
         </LinearLayout>
@@ -93,9 +93,9 @@
                 android:id="@+id/taxes_total"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="15dp"
                 android:layout_weight=".5"
-                android:text="@string/zero_dollar_amount"
+                android:text="@string/calculator_zero_dollar_amount"
                 android:textSize="24sp"
                 android:visibility="visible" />
 
@@ -103,8 +103,8 @@
                 android:id="@+id/deposited_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:text="@string/zero_dollar_amount"
+                android:layout_marginRight="15dp"
+                android:text="@string/calculator_zero_dollar_amount"
                 android:textSize="24sp"
                 android:visibility="visible" />
         </LinearLayout>
@@ -119,7 +119,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
-                android:text="@string/taxes_label"
+                android:text="@string/calculator_taxes_label"
                 android:textSize="20sp"
                 android:visibility="visible" />
 
@@ -127,13 +127,13 @@
                 android:id="@+id/deposited_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/deposit_label"
+                android:text="@string/calculator_deposit_label"
                 android:textSize="20sp"
                 android:visibility="visible" />
         </LinearLayout>
 
         <View
-            android:id="@+id/WhiteLineSplitFrame01"
+            android:id="@+id/LineSplitFrame01"
             android:layout_width="wrap_content"
             android:layout_height="2dp"
             android:layout_marginBottom="10dp"
@@ -153,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
-                android:text="@string/rank_label"
+                android:text="@string/calculator_rank_label"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:visibility="visible" />
 
@@ -171,9 +171,10 @@
         <ScrollView
             android:id="@+id/scrollView1"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:visibility="visible" >
+            android:visibility="visible"
+            android:fillViewport="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -198,7 +199,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
-                            android:text="@string/base_pay_rate_label"
+                            android:text="@string/calculator_base_pay_rate_label"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:visibility="visible" />
 
@@ -208,7 +209,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="@string/dollar_sign"
+                            android:text="@string/calculator_dollar_sign"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                         <EditText
@@ -217,7 +218,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
                             android:ems="10"
-                            android:hint="@string/zero_amount"
+                            android:hint="@string/calculator_zero_amount"
                             android:inputType="numberDecimal"
                             android:selectAllOnFocus="true"
                             android:visibility="visible"
@@ -235,7 +236,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
-                            android:text="@string/overtime1_rate_label"
+                            android:text="@string/calculator_overtime1_rate_label"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:visibility="visible" />
 
@@ -245,7 +246,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="@string/dollar_sign"
+                            android:text="@string/calculator_dollar_sign"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                         <EditText
@@ -254,7 +255,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
                             android:ems="10"
-                            android:hint="@string/zero_amount"
+                            android:hint="@string/calculator_zero_amount"
                             android:inputType="numberDecimal"
                             android:selectAllOnFocus="true"
                             android:visibility="visible" />
@@ -271,7 +272,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
-                            android:text="@string/overtime2_rate_label"
+                            android:text="@string/calculator_overtime2_rate_label"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:visibility="visible" />
 
@@ -281,7 +282,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="@string/dollar_sign"
+                            android:text="@string/calculator_dollar_sign"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                         <EditText
@@ -290,7 +291,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
                             android:ems="10"
-                            android:hint="@string/zero_amount"
+                            android:hint="@string/calculator_zero_amount"
                             android:inputType="numberDecimal"
                             android:selectAllOnFocus="true"
                             android:visibility="visible" />
@@ -307,7 +308,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
-                            android:text="@string/years_worked_label"
+                            android:text="@string/calculator_years_worked_label"
                             android:textAppearance="?android:attr/textAppearanceMedium"
                             android:visibility="visible" />
 
@@ -317,7 +318,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:gravity="right"
-                            android:text="@string/number_sign"
+                            android:text="@string/calculator_number_sign"
                             android:textAppearance="?android:attr/textAppearanceMedium" />
 
                         <EditText
@@ -326,7 +327,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
                             android:ems="10"
-                            android:hint="@string/zero_hint"
+                            android:hint="@string/calculator_zero_hint"
                             android:inputType="numberDecimal"
                             android:selectAllOnFocus="true"
                             android:visibility="visible" />
@@ -334,102 +335,202 @@
                     </LinearLayout>
 
                 </LinearLayout>
-                <TextView
-                    android:id="@+id/payday_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/payperiod_label"
-                    android:visibility="visible" />
-
-                <RadioGroup
-                    android:id="@+id/radioGroup1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:orientation="horizontal"
-                    android:visibility="visible" >
-
-                    <RadioButton
-                        android:id="@+id/radio0"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:checked="true"
-                        android:text="@string/pay1_button"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:visibility="visible" />
-
-                    <RadioButton
-                        android:id="@+id/radio1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:text="@string/pay2_button"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:visibility="visible" />
-
-                    <RadioButton
-                        android:id="@+id/radio2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight=".5"
-                        android:checked="true"
-                        android:text="@string/pay3_button"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:visibility="visible" />
-                </RadioGroup>
-
-                <TextView
-                    android:id="@+id/about_copyright"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/enter_hourly_information"
-                    android:visibility="visible" />
 
                 <LinearLayout
-                    style="?android:attr/buttonBarStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:visibility="visible" >
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:visibility="gone">
 
-                    <Button
-                        android:id="@+id/holidays_button"
-                        style="?android:attr/buttonBarButtonStyle"
+                    <TextView
+                        android:id="@+id/payday_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:text="@string/holidays_label"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/calculator_payperiod_label"
                         android:visibility="visible" />
 
-                    <Button
-                        android:id="@+id/overtime_button"
-                        style="?android:attr/buttonBarButtonStyle"
+                    <RadioGroup
+                        android:id="@+id/radioGroup1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal"
+                        android:visibility="visible" >
+
+                        <RadioButton
+                            android:id="@+id/radio0"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:checked="true"
+                            android:text="@string/calculator_pay1_button"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:visibility="visible" />
+
+                        <RadioButton
+                            android:id="@+id/radio1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:text="@string/calculator_pay2_button"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:visibility="visible" />
+
+                        <RadioButton
+                            android:id="@+id/radio2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            android:checked="true"
+                            android:text="@string/calculator_pay3_button"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:visibility="visible" />
+                    </RadioGroup>
+
+                    <TextView
+                        android:id="@+id/about_copyright"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:text="@string/overtime_label"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/calculator_enter_hourly_information"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="visible" >
+
+                        <Button
+                            android:id="@+id/holidays_button"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:text="@string/calculator_holidays_label"
+                            android:visibility="visible" />
+
+                        <Button
+                            android:id="@+id/overtime_button"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:text="@string/calculator_overtime_label"
+                            android:visibility="visible" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        style="?android:attr/buttonBarStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible" >
+
+                        <Button
+                            android:id="@+id/scheduled_days_button"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:text="@string/calculator_scheduled_days_label"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/calculator_account_deposits_title"
+                        android:id="@+id/textView"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="18sp" />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calculator_account_1"
+                            android:id="@+id/textView2"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calculator_account_amount_1"
+                            android:id="@+id/textView3"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal" />
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/LineSplitFrame02"
+                        android:layout_width="wrap_content"
+                        android:layout_height="2dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@android:color/black"
                         android:visibility="visible" />
                 </LinearLayout>
 
                 <LinearLayout
-                    style="?android:attr/buttonBarStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="visible" >
+                    android:orientation="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
-                    <Button
-                        android:id="@+id/scheduled_days_button"
-                        style="?android:attr/borderlessButtonStyle"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:text="@string/scheduled_days_label"
-                        android:visibility="visible" />
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:text="@string/calculator_scheduled_days_label"
+                            android:id="@+id/button_scheduled_days"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:text="@string/calculator_overtime_label"
+                            android:id="@+id/button_overtime_hours"
+                            android:layout_weight="1" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="fill_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:text="@string/calculator_holidays_label"
+                            android:id="@+id/button_holidays"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:text="@string/calculator_payperiod_button_label"
+                            android:id="@+id/buton_payday"
+                            android:layout_weight="1" />
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
