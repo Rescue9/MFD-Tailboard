@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.corridor9design.mfdtailboard.R;
 import com.corridor9design.mfdtailboard.accruedTime.AccruedTime;
-import com.corridor9design.mfdtailboard.todo.Todo;
+import com.corridor9design.mfdtailboard.todo.TodoFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -56,7 +56,7 @@ public class AccruedTimeTodoContainer extends Fragment {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 
         ft.add(accrued_time_todo_container.getId(), AccruedTime.newInstance("Accrued Time Fragment", "AccrFrag"));
-        ft.add(accrued_time_todo_container.getId(), Todo.newInstance("Todo Fragment", "TodoFrag"));
+        ft.add(accrued_time_todo_container.getId(), TodoFragment.newInstance(getActivity(), "Todo Fragment", "TodoFrag"));
 
         ft.commit();
 
