@@ -6,27 +6,28 @@
     android:layout_margin="1dp"
     android:layout_weight="1"
     android:background="@android:color/white"
-    tools:context="com.corridor9design.mfdtailboard.calculator.Calculator"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.corridor9design.mfdtailboard.calculator.Calculator">
 
     <TextView
+        android:id="@+id/calculator_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/calculator_header"
-        android:id="@+id/calculator_header"
-        android:gravity="center_horizontal"
         android:background="@android:color/background_dark"
+        android:gravity="center_horizontal"
+        android:text="@string/calculator_header"
         android:textColor="@android:color/primary_text_dark"
         android:textSize="18sp" />
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:paddingTop="@dimen/fragment_vertical_margin"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/fragment_vertical_margin"
+        android:paddingLeft="@dimen/fragment_horizontal_margin"
         android:paddingRight="@dimen/fragment_horizontal_margin"
-        android:paddingLeft="@dimen/fragment_horizontal_margin" >
+        android:paddingTop="@dimen/fragment_vertical_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -54,7 +55,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible" >
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/base_pay_total"
@@ -87,7 +88,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:visibility="visible" >
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/taxes_total"
@@ -112,7 +113,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible" >
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/taxes_label"
@@ -145,7 +146,7 @@
             android:id="@+id/simple_layout_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/rank_label"
@@ -173,26 +174,26 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:visibility="visible"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible" >
+                android:visibility="visible">
 
                 <LinearLayout
                     android:id="@+id/advanced_layout_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:visibility="gone" >
+                    android:visibility="gone">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <TextView
                             android:id="@+id/base_pay_rate_label"
@@ -217,19 +218,19 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="5"
+                            android:width="0dp"
                             android:ems="10"
                             android:hint="@string/calculator_zero_amount"
                             android:inputType="numberDecimal"
                             android:selectAllOnFocus="true"
-                            android:visibility="visible"
-                            android:width="0dp" />
+                            android:visibility="visible" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <TextView
                             android:id="@+id/overtime1_rate_label"
@@ -265,7 +266,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <TextView
                             android:id="@+id/overtime2_rate_label"
@@ -301,7 +302,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <TextView
                             android:id="@+id/years_worked_label"
@@ -337,9 +338,9 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent"
+                    android:orientation="vertical"
                     android:visibility="gone">
 
                     <TextView
@@ -356,7 +357,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:orientation="horizontal"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <RadioButton
                             android:id="@+id/radio0"
@@ -401,7 +402,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <Button
                             android:id="@+id/holidays_button"
@@ -428,7 +429,7 @@
                         style="?android:attr/buttonBarStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:visibility="visible" >
+                        android:visibility="visible">
 
                         <Button
                             android:id="@+id/scheduled_days_button"
@@ -442,39 +443,40 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/calculator_account_deposits_title"
-                        android:id="@+id/textView"
                         android:layout_gravity="center_horizontal"
+                        android:text="@string/calculator_account_deposits_title"
                         android:textSize="18sp" />
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent">
+                        android:layout_height="fill_parent"
+                        android:orientation="horizontal">
 
                         <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:text="@string/calculator_account_1"
                             android:id="@+id/textView2"
-                            android:layout_weight="1"
-                            android:gravity="center_horizontal" />
-
-                        <TextView
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="@string/calculator_account_amount_1"
-                            android:id="@+id/textView3"
                             android:layout_weight="1"
-                            android:gravity="center_horizontal" />
+                            android:gravity="center_horizontal"
+                            android:text="@string/calculator_account_1" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_horizontal"
+                            android:text="@string/calculator_account_amount_1" />
                     </LinearLayout>
+
                     <View
                         android:id="@+id/LineSplitFrame02"
                         android:layout_width="wrap_content"
@@ -486,50 +488,50 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:orientation="vertical"
                     android:layout_width="fill_parent"
-                    android:layout_height="fill_parent">
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
                         <Button
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:text="@string/calculator_scheduled_days_label"
                             android:id="@+id/button_scheduled_days"
-                            android:layout_weight="1" />
-
-                        <Button
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
-                            android:text="@string/calculator_overtime_label"
+                            android:layout_weight="1"
+                            android:text="@string/calculator_scheduled_days_label" />
+
+                        <Button
                             android:id="@+id/button_overtime_hours"
-                            android:layout_weight="1" />
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:text="@string/calculator_overtime_label" />
                     </LinearLayout>
 
                     <LinearLayout
-                        android:orientation="horizontal"
                         android:layout_width="fill_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
 
                         <Button
-                            android:layout_width="0dp"
-                            android:layout_height="fill_parent"
-                            android:text="@string/calculator_holidays_label"
                             android:id="@+id/button_holidays"
-                            android:layout_weight="1" />
-
-                        <Button
                             android:layout_width="0dp"
                             android:layout_height="fill_parent"
-                            android:text="@string/calculator_payperiod_button_label"
+                            android:layout_weight="1"
+                            android:text="@string/calculator_holidays_label" />
+
+                        <Button
                             android:id="@+id/buton_payday"
-                            android:layout_weight="1" />
+                            android:layout_width="0dp"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:text="@string/calculator_payperiod_button_label" />
                     </LinearLayout>
                 </LinearLayout>
 
