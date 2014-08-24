@@ -12,4 +12,11 @@ Curabitur sem nunc, ultrices quis sollicitudin a, condimentum a tellus. Phasellu
 
 Quisque mollis consectetur facilisis. Etiam non ante sed velit euismod hendrerit eu quis massa. Cras vehicula nisl quis tortor pulvinar rhoncus. Etiam id porttitor velit. Nullam convallis, sem cursus vehicula condimentum, nulla turpis dapibus enim, vel volutpat sem metus vel mauris. Morbi convallis, ligula eu dapibus varius, velit mi bibendum leo, eget pharetra arcu ipsum vitae magna. Suspendisse molestie mattis tortor non eleifend. Praesent dui quam, placerat a suscipit eget, commodo a arcu. Nullam ut dolor eget nibh commodo blandit. Nam velit libero, blandit in diam sed, commodo bibendum risus. Phasellus euismod vel justo in suscipit. Nulla vitae ullamcorper ipsum, ut porttitor libero. Suspendisse a bibendum lectus, non molestie neque. Donec condimentum elit massa, ac feugiat libero iaculis eget. Nunc aliquet nunc at nisl tristique, non cursus nunc cursus. Ut lacinia dictum egestas.</string>
     <string name="todo_edit">Edit Todo\'s</string>
+    <string name="todo_row_number">This is row number %d</string>
+    <string name="todo_moved">\'%1$s\' moved to position %2$s</string>
+    <string name="todo_removed_positions">Removed positions: %s</string>
+    <string name="todo_tap_to_insert">Tap on an item to insert a new item</string>
+    <string name="todo_newly_added_item">This is newly added item %d</string>
+    <string name="todo_itemdeleted">Item deleted</string>
+    <string name="todo_taptoundo">Tap to undo</string>
 </resources>

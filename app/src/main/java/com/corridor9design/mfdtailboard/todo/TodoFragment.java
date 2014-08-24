@@ -1,22 +1,29 @@
 package com.corridor9design.mfdtailboard.todo;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.corridor9design.mfdtailboard.R;
-import com.corridor9design.mfdtailboard.todo.dummy.DummyContent;
+import com.nhaarman.listviewanimations.ArrayAdapter;
+import com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter;
+import com.nhaarman.listviewanimations.itemmanipulation.DynamicListView;
+import com.nhaarman.listviewanimations.itemmanipulation.dragdrop.OnItemMovedListener;
+import com.nhaarman.listviewanimations.itemmanipulation.dragdrop.TouchViewDraggableManager;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.OnDismissCallback;
+import com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.undo.SimpleSwipeUndoAdapter;
 
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * A fragment representing a list of Items.
@@ -38,7 +45,10 @@ public class TodoFragment extends Fragment implements
     private String mParam1;
     private String mParam2;
 
-    private List todoItemList;
+    private static final int INITIAL_DELAY_MILLIS = 300;
+
+    private int mNewItemCount;
+    private static Context mContext;
 
     private OnFragmentInteractionListener mFragmentListener;
     private OnTodoItemSelectedListener mTodoItemListener;
@@ -46,21 +56,22 @@ public class TodoFragment extends Fragment implements
     /**
      * The fragment's ListView/GridView.
      */
-    private AbsListView mListView;
+    private DynamicListView mListView;
 
     /**
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-    private ListAdapter mAdapter;
+    private TodoListAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
-    public static TodoFragment newInstance(String param1, String param2) {
+    public static TodoFragment newInstance(Context context, String param1, String param2) {
         TodoFragment fragment = new TodoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
+        mContext = context;
         return fragment;
     }
 
@@ -79,10 +90,6 @@ public class TodoFragment extends Fragment implements
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-        // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
     }
 
     @Override
@@ -95,11 +102,29 @@ public class TodoFragment extends Fragment implements
 
 
         // Set the adapter
-        mListView = (AbsListView) view.findViewById(R.id.todo_list);
-        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+        mListView = (DynamicListView) view.findViewById(R.id.todo_list);
+        //((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+
+        // Setup the adapter
+        mAdapter = new TodoListAdapter(mContext);
+        SimpleSwipeUndoAdapter simpleSwipeUndoAdapter = new SimpleSwipeUndoAdapter(mAdapter, mContext, new MyOnDismissCallback(mAdapter));
+        AlphaInAnimationAdapter animAdapter = new AlphaInAnimationAdapter(simpleSwipeUndoAdapter);
+        animAdapter.setAbsListView(mListView);
+        assert animAdapter.getViewAnimator() != null;
+        animAdapter.getViewAnimator().setInitialDelayMillis(INITIAL_DELAY_MILLIS);
+        mListView.setAdapter(animAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
-        mListView.setOnItemClickListener(this);
+        mListView.setOnItemClickListener(new MyOnItemClickListener(mListView));
+
+        // Set DynamicListView functionality
+        mListView.enableDragAndDrop();
+        mListView.setOnItemLongClickListener(new MyOnItemLongClickListener(mListView));
+        mListView.setOnItemMovedListener(new MyOnItemMovedListener(mAdapter));
+        mListView.setDraggableManager(new TouchViewDraggableManager(R.id.todo_item_draganddrop_touchview));
+
+        // Set swipe to dismiss functionality
+        mListView.enableSimpleSwipeUndo();
 
         return view;
     }
@@ -174,5 +199,81 @@ public class TodoFragment extends Fragment implements
      */
     public interface OnTodoItemSelectedListener {
         public void onTodoItemSelected(int id);
+    }
+
+    private class MyOnItemLongClickListener implements AdapterView.OnItemLongClickListener {
+        private final DynamicListView mListView;
+
+        MyOnItemLongClickListener(final DynamicListView listView) {
+            mListView = listView;
+        }
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            if (mListView != null) {
+                mListView.startDragging(position - mListView.getHeaderViewsCount());
+            }
+            return true;
+        }
+    }
+
+    private class MyOnItemMovedListener implements OnItemMovedListener {
+        private final ArrayAdapter<String> mAdapter;
+        private Toast mToast;
+
+        MyOnItemMovedListener(ArrayAdapter<String> adapter) {
+            mAdapter = adapter;
+        }
+
+        @Override
+        public void onItemMoved(int originalPosition, int newPosition) {
+            if (mToast != null) {
+                mToast.cancel();
+            }
+
+            mToast = Toast.makeText(mContext, getString(R.string.todo_moved, mAdapter.getItem(newPosition), newPosition), Toast.LENGTH_SHORT);
+            mToast.show();
+        }
+    }
+
+    private class MyOnDismissCallback implements OnDismissCallback {
+        private final ArrayAdapter<String> mAdapter;
+
+        @Nullable
+        private Toast mToast;
+
+        MyOnDismissCallback(ArrayAdapter<String> adapter) {
+            mAdapter = adapter;
+        }
+
+        @Override
+        public void onDismiss(@NonNull ViewGroup listView, @NonNull int[] reverseSortedPositions) {
+            for (int position : reverseSortedPositions) {
+                mAdapter.remove(position);
+            }
+
+            if (mToast != null) {
+                mToast.cancel();
+            }
+
+            mToast = Toast.makeText(
+                    mContext, getString(R.string.todo_removed_positions, Arrays.toString(reverseSortedPositions)),
+                    Toast.LENGTH_LONG
+            );
+            mToast.show();
+        }
+    }
+
+    private class MyOnItemClickListener implements AdapterView.OnItemClickListener {
+        private final DynamicListView mListView;
+
+        MyOnItemClickListener(final DynamicListView listView) {
+            mListView = listView;
+        }
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            mListView.insert(position, getString(R.string.todo_newly_added_item, mNewItemCount));
+            mNewItemCount++;
+        }
     }
 }

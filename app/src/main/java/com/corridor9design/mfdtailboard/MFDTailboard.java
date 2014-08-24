@@ -264,7 +264,7 @@ public class MFDTailboard extends Activity implements
     @Override
     public void onTodoFragmentInteraction(String id) {
         getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, TodoFragment.newInstance("TodoFrag", "TodoFull"))
+                .replace(R.id.MFDTailboardContainer, TodoFragment.newInstance(this, "TodoFrag", "TodoFull"))
                 .addToBackStack("Fullscreen Todo")
                 .commit();
 

@@ -56,7 +56,7 @@ public class AccruedTimeTodoContainer extends Fragment {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 
         ft.add(accrued_time_todo_container.getId(), AccruedTime.newInstance("Accrued Time Fragment", "AccrFrag"));
-        ft.add(accrued_time_todo_container.getId(), TodoFragment.newInstance("Todo Fragment", "TodoFrag"));
+        ft.add(accrued_time_todo_container.getId(), TodoFragment.newInstance(getActivity(), "Todo Fragment", "TodoFrag"));
 
         ft.commit();
 

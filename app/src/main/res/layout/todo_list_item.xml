@@ -9,8 +9,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin" >
 
+    <com.nhaarman.listviewanimations.itemmanipulation.dragdrop.GripView
+        android:id="@+id/todo_item_draganddrop_touchview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:color="@android:color/darker_gray"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp" />
+
     <TextView
-        android:id="@+id/todo_item"
+        android:id="@+id/todo_item_draganddrop_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp" >
