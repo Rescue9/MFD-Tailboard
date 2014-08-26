@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 
 import com.corridor9design.mfdtailboard.R;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
-import com.corridor9design.mfdtailboard.callbackSwap.Callback;
-import com.corridor9design.mfdtailboard.callbackSwap.Swap;
+import com.corridor9design.mfdtailboard.callbackSwap.CallbackSwap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,7 +54,7 @@ public class CalendarCallbackContainer extends Fragment {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 
         ft.add(calendar_callback_container.getId(), Calendar.newInstance("Calendar Fragment", "CalFrag"));
-        ft.add(calendar_callback_container.getId(), CallbackSwapContainer.newInstance("CallbackSwap Fragment", "CallSwapFrag"));
+        ft.add(calendar_callback_container.getId(), CallbackSwap.newInstance("CallbackSwap Fragment", "CallSwapFrag"));
 
 
         ft.commit();

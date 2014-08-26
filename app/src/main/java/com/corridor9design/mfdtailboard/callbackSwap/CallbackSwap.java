@@ -14,13 +14,13 @@ import com.corridor9design.mfdtailboard.R;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Callback.OnFragmentInteractionListener} interface
+ * {@link CallbackSwap.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Callback#newInstance} factory method to
+ * Use the {@link CallbackSwap#newInstance} factory method to
  * create an instance of this fragment.
  *
  */
-public class Callback extends Fragment implements View.OnClickListener {
+public class CallbackSwap extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -41,15 +41,15 @@ public class Callback extends Fragment implements View.OnClickListener {
      * @return A new instance of fragment Calculator.
      */
     // TODO: Rename and change types and number of parameters
-    public static Callback newInstance(String param1, String param2) {
-        Callback fragment = new Callback();
+    public static CallbackSwap newInstance(String param1, String param2) {
+        CallbackSwap fragment = new CallbackSwap();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
-    public Callback() {
+    public CallbackSwap() {
         // Required empty public constructor
     }
 
@@ -66,8 +66,8 @@ public class Callback extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_callback, container, false);
-        if (mParam2 != "CallFull") {
+        View view = inflater.inflate(R.layout.fragment_callback_swap, container, false);
+        if (mParam2 != "CallSwapFull") {
             view.setOnClickListener(this);
         }
 

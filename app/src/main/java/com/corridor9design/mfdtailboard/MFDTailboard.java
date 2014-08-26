@@ -21,27 +21,23 @@ import android.widget.Toast;
 import com.corridor9design.mfdtailboard.accruedTime.AccruedTime;
 import com.corridor9design.mfdtailboard.calculator.Calculator;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
-import com.corridor9design.mfdtailboard.callbackSwap.Callback;
-import com.corridor9design.mfdtailboard.callbackSwap.Swap;
-import com.corridor9design.mfdtailboard.fragments.CallbackSwapContainer;
+import com.corridor9design.mfdtailboard.callbackSwap.CallbackSwap;
 import com.corridor9design.mfdtailboard.fragments.Overview;
 import com.corridor9design.mfdtailboard.settings.Settings;
 import com.corridor9design.mfdtailboard.todo.TodoFragment;
 
 import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
 
-import java.sql.Array;
 import java.util.Arrays;
 
 
 public class MFDTailboard extends Activity implements
         Calendar.OnFragmentInteractionListener,
-        Callback.OnFragmentInteractionListener,
+        CallbackSwap.OnFragmentInteractionListener,
         Calculator.OnFragmentInteractionListener,
         AccruedTime.OnFragmentInteractionListener,
         TodoFragment.OnFragmentInteractionListener,
-        TodoFragment.OnTodoItemSelectedListener,
-        Swap.OnFragmentInteractionListener {
+        TodoFragment.OnTodoItemSelectedListener {
 
     // debug tag for logging
     public static final String TAG = "MFDTailboard";
@@ -275,10 +271,10 @@ public class MFDTailboard extends Activity implements
                         break;
 
                     case 4:
-                        Callback callVisible = (Callback) getFragmentManager().findFragmentByTag("CallbackSwap");
+                        CallbackSwap callVisible = (CallbackSwap) getFragmentManager().findFragmentByTag("CallbackSwap");
                         if (callVisible == null || !callVisible.isVisible()) {
                             getFragmentManager().beginTransaction()
-                                    .replace(R.id.MFDTailboardContainer, CallbackSwapContainer.newInstance("CallFrag", "CallFull"), "CallbackSwap")
+                                    .replace(R.id.MFDTailboardContainer, CallbackSwap.newInstance("CallSwapFrag", "CallSwapFull"), "CallbackSwap")
                                     .addToBackStack("CallbackSwap")
                                     .commit();
                             break;
@@ -366,14 +362,7 @@ public class MFDTailboard extends Activity implements
 
     public void onCallbackFragmentInteraction(Uri uri) {
         getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, CallbackSwapContainer.newInstance("CallFrag", "CallFull"), "CallbackSwap")
-                .addToBackStack("CallbackSwap")
-                .commit();
-    }
-
-    public void onSwapFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, CallbackSwapContainer.newInstance("SwapFrag", "SwapFull"), "CallbackSwap")
+                .replace(R.id.MFDTailboardContainer, CallbackSwap.newInstance("CallSwapFrag", "CallSwapFull"), "CallbackSwap")
                 .addToBackStack("CallbackSwap")
                 .commit();
     }
