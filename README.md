@@ -1,5 +1,4 @@
 #MFD Tailboard
-------
 
 This Android application is for members of the Madisonville Fire Department. It was initially a simple payday calculator application titled MFDPayday. As it has evolved a number of new features have been added. This new adaptation includes a shift calendar, callback tracker, payday calculator, vacation / sick time tracker, and todo section.
 

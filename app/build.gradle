@@ -8,8 +8,8 @@ android {
         applicationId "com.corridor9design.mfdtailboard"
         minSdkVersion 15
         targetSdkVersion 20
-        versionCode 24
-        versionName "0.44_beta1.1"
+        versionCode 25
+        versionName "0.44_beta1.3"
     }
     buildTypes {
         release {

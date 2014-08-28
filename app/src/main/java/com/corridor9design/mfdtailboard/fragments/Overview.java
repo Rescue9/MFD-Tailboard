@@ -16,7 +16,10 @@ import com.corridor9design.mfdtailboard.R;
  *
  */
 public class Overview extends Fragment {
-
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
 
     public Overview() {
         // Required empty public constructor
@@ -42,6 +45,15 @@ public class Overview extends Fragment {
         ft.commit();
 
         return overview_container;
+    }
+
+    public static Overview newInstance(String param1, String param2) {
+        Overview fragment = new Overview();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, param1);
+        args.putString(ARG_PARAM2, param2);
+        fragment.setArguments(args);
+        return fragment;
     }
 
 

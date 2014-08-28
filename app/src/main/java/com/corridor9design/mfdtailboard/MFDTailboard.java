@@ -1,6 +1,7 @@
 package com.corridor9design.mfdtailboard;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -20,24 +21,23 @@ import android.widget.Toast;
 import com.corridor9design.mfdtailboard.accruedTime.AccruedTime;
 import com.corridor9design.mfdtailboard.calculator.Calculator;
 import com.corridor9design.mfdtailboard.calendar.Calendar;
-import com.corridor9design.mfdtailboard.callbackSwap.Callback;
-import com.corridor9design.mfdtailboard.callbackSwap.Swap;
-import com.corridor9design.mfdtailboard.fragments.CallbackSwapContainer;
+import com.corridor9design.mfdtailboard.callbackSwap.CallbackSwap;
 import com.corridor9design.mfdtailboard.fragments.Overview;
 import com.corridor9design.mfdtailboard.settings.Settings;
 import com.corridor9design.mfdtailboard.todo.TodoFragment;
 
 import org.arasthel.googlenavdrawermenu.views.GoogleNavigationDrawer;
 
+import java.util.Arrays;
+
 
 public class MFDTailboard extends Activity implements
         Calendar.OnFragmentInteractionListener,
-        Callback.OnFragmentInteractionListener,
+        CallbackSwap.OnFragmentInteractionListener,
         Calculator.OnFragmentInteractionListener,
         AccruedTime.OnFragmentInteractionListener,
         TodoFragment.OnFragmentInteractionListener,
-        TodoFragment.OnTodoItemSelectedListener,
-        Swap.OnFragmentInteractionListener {
+        TodoFragment.OnTodoItemSelectedListener {
 
     // debug tag for logging
     public static final String TAG = "MFDTailboard";
@@ -48,7 +48,11 @@ public class MFDTailboard extends Activity implements
     private ActionBarDrawerToggle mDrawerToggle;
     private GoogleNavigationDrawer mDrawer;
 
+    // string array for fragment tag - number conversion
+    String[] fragmentTag = { "Overview", "Calculator", "Calendar", "CallbackSwap", "AccruedTime", "Todo", "Settings", "Info" };
+
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -61,11 +65,15 @@ public class MFDTailboard extends Activity implements
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
+        // start overview fragment initially
         if (savedInstanceState == null) {
             getFragmentManager().beginTransaction()
-                    .add(R.id.MFDTailboardContainer, new Overview())
+                    .add(R.id.MFDTailboardContainer, new Overview(), "Overview")
+                    .addToBackStack("Overview")
                     .commit();
         }
+        // highlight overview in google nav menu on initial launch
+        selectProperDrawerMenu(1);
 
         // set default setting values. necessary for initial run
         PreferenceManager.setDefaultValues(this, R.xml.settings_layout, false);
@@ -115,6 +123,24 @@ public class MFDTailboard extends Activity implements
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        FragmentManager fm = getFragmentManager();
+        String stackName = null;
+        int backStackCount;
+        for (backStackCount = 0; backStackCount < fm.getBackStackEntryCount(); backStackCount++) {
+            stackName = fm.getBackStackEntryAt(backStackCount).getName();
+        }
+        Log.d("StackName", "" + stackName);
+        Log.d("BackStack Count", "" + backStackCount);
+        selectProperDrawerMenu(Arrays.asList(fragmentTag).indexOf(stackName) + 1);
+
+        if (backStackCount < 1) {
+            finish();
+        }
+    }
+
     public static Context getContext() {
         return mContext;
     }
@@ -123,7 +149,7 @@ public class MFDTailboard extends Activity implements
     private int[] getMainDrawables(boolean holoDark) {
         TypedArray mImgs;
 
-        if (holoDark){
+        if (holoDark) {
             mImgs = getResources().obtainTypedArray(R.array.drawable_ids_main_dark);
 
         } else {
@@ -143,11 +169,11 @@ public class MFDTailboard extends Activity implements
     private int[] getSecondaryDrawables(boolean holoDark) {
         TypedArray mImgs;
 
-        if (holoDark){
+        if (holoDark) {
             mImgs = getResources().obtainTypedArray(R.array.drawable_ids_secondary_dark);
 
         } else {
-            mImgs  = getResources().obtainTypedArray(R.array.drawable_ids_secondary_light);
+            mImgs = getResources().obtainTypedArray(R.array.drawable_ids_secondary_light);
 
         }
 
@@ -201,16 +227,106 @@ public class MFDTailboard extends Activity implements
 
         mDrawer.setOnNavigationSectionSelected(new GoogleNavigationDrawer.OnNavigationSectionSelected() {
             @Override
-            public void onSectionSelected(View v, int i, long l) {
+            public void onSectionSelected(View v, int position, long id) {
 
-                if (i == 7){
-                    getFragmentManager().beginTransaction()
-                            .replace(R.id.MFDTailboardContainer, Settings.newInstance("Settings Fragment", "SetFrag"), TAG + " switched Settings to fullscreen")
-                            .addToBackStack("Fullscreen Settings")
-                            .commit();
+                switch (position) {
+                    case 1:
+                        Overview oviewVisible = (Overview) getFragmentManager().findFragmentByTag("Overview");
+                        if (oviewVisible == null || !oviewVisible.isVisible()) {
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.MFDTailboardContainer, Overview.newInstance("Overview", "OverFrag"), "Overview")
+                                    .addToBackStack("Overview")
+                                    .commit();
+                            break;
+                        } else {
+                            Toast.makeText(getBaseContext(), "The " + mAllSections[position - 1] + " is currently in view", Toast.LENGTH_SHORT).show();
 
-                } else {
-                    Toast.makeText(getBaseContext(), "Selected section: " + mAllSections[i - 1], Toast.LENGTH_SHORT).show();
+                            break;
+                        }
+
+                    case 2:
+                        Calculator calcVisible = (Calculator) getFragmentManager().findFragmentByTag("Calculator");
+                        if (calcVisible == null || !calcVisible.isVisible()) {
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.MFDTailboardContainer, Calculator.newInstance("CalcFrag", "CalcFull"), "Calculator")
+                                    .addToBackStack("Calculator")
+                                    .commit();
+                            break;
+                        } else {
+                            Toast.makeText(getBaseContext(), "The " + mAllSections[position - 1] + " is currently in view", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case 3:
+                        Calendar calVisible = (Calendar) getFragmentManager().findFragmentByTag("Calendar");
+                        if (calVisible == null || !calVisible.isVisible()) {
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.MFDTailboardContainer, Calendar.newInstance("CalFrag", "CalFull"), "Calendar")
+                                    .addToBackStack("Calendar")
+                                    .commit();
+                            break;
+                        } else {
+                            Toast.makeText(getBaseContext(), "The " + mAllSections[position - 1] + " is currently in view", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case 4:
+                        CallbackSwap callVisible = (CallbackSwap) getFragmentManager().findFragmentByTag("CallbackSwap");
+                        if (callVisible == null || !callVisible.isVisible()) {
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.MFDTailboardContainer, CallbackSwap.newInstance("CallSwapFrag", "CallSwapFull"), "CallbackSwap")
+                                    .addToBackStack("CallbackSwap")
+                                    .commit();
+                            break;
+                        } else {
+                            Toast.makeText(getBaseContext(), "The " + mAllSections[position - 1] + " is currently in view", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case 5:
+                        AccruedTime accrVisible = (AccruedTime) getFragmentManager().findFragmentByTag("AccruedTime");
+                        if (accrVisible == null || !accrVisible.isVisible()) {
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccrFrag", "AccrFull"), "AccruedTime")
+                                    .addToBackStack("AccruedTime")
+                                    .commit();
+                            break;
+                        } else {
+                            Toast.makeText(getBaseContext(), "The " + mAllSections[position - 1] + " is currently in view", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case 6:
+                        TodoFragment todoVisible = (TodoFragment) getFragmentManager().findFragmentByTag("Todo");
+                        if (todoVisible == null || !todoVisible.isVisible()) {
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.MFDTailboardContainer, TodoFragment.newInstance(getContext(), "TodoFrag", "TodoFull"), "Todo")
+                                    .addToBackStack("Todo")
+                                    .commit();
+                            break;
+                        } else {
+                            Toast.makeText(getBaseContext(), "The " + mAllSections[position - 1] + " is currently in view", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case 7:
+                        Settings settVisible = (Settings) getFragmentManager().findFragmentByTag("Settings");
+                        if (settVisible == null || !settVisible.isVisible()) {
+                            getFragmentManager().beginTransaction()
+                                    .replace(R.id.MFDTailboardContainer, Settings.newInstance("Settings Fragment", "SetFrag"), "Settings")
+                                    .addToBackStack("Settings")
+                                    .commit();
+                            break;
+                        } else {
+                            Toast.makeText(getBaseContext(), "The " + mAllSections[position - 1] + " is currently in view", Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+
+                    case 8:
+                        break;
+
+                    default:
+                        break;
                 }
             }
         });
@@ -226,49 +342,52 @@ public class MFDTailboard extends Activity implements
         mDrawer.setDrawerListener(mDrawerToggle);
     }
 
-    public void onCalendarFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-            .replace(R.id.MFDTailboardContainer, Calendar.newInstance("CalFrag", "CalFull"))
-            .addToBackStack("Fullscreen Calendar")
-            .commit();
-    }
-
-    public void onCallbackFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, CallbackSwapContainer.newInstance("CallFrag", "CallFull"))
-                .addToBackStack("Fullscreen Callback")
-                .commit();
-    }
-
-    public void onSwapFragmentInteraction(Uri uri) {
-        getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, CallbackSwapContainer.newInstance("SwapFrag", "SwapFull"))
-                .addToBackStack("Fullscreen Callback")
-                .commit();
+    public void selectProperDrawerMenu(int position) {
+        mDrawer.check(position);
     }
 
     public void onCalculatorFragmentInteraction(Uri uri) {
         getFragmentManager().beginTransaction()
-            .replace(R.id.MFDTailboardContainer, Calculator.newInstance("CalcFrag", "CalcFull"))
-            .addToBackStack("Fullscreen Calculator")
-            .commit();
+                .replace(R.id.MFDTailboardContainer, Calculator.newInstance("CalcFrag", "CalcFull"), "Calculator")
+                .addToBackStack("Calculator")
+                .commit();
+        selectProperDrawerMenu(2);
+    }
+
+    public void onCalendarFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, Calendar.newInstance("CalFrag", "CalFull"), "Calendar")
+                .addToBackStack("Calendar")
+                .commit();
+        selectProperDrawerMenu(3);
+    }
+
+    public void onCallbackFragmentInteraction(Uri uri) {
+        getFragmentManager().beginTransaction()
+                .replace(R.id.MFDTailboardContainer, CallbackSwap.newInstance("CallSwapFrag", "CallSwapFull"), "CallbackSwap")
+                .addToBackStack("CallbackSwap")
+                .commit();
+        selectProperDrawerMenu(4);
     }
 
     public void onAccruedTimeFragmentInteraction(Uri uri) {
         getFragmentManager().beginTransaction()
-            .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccrFrag", "AccrFull"))
-            .addToBackStack("Fullscreen AccruedTime")
-            .commit();
+                .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccrFrag", "AccrFull"), "AccruedTime")
+                .addToBackStack("AccruedTime")
+                .commit();
+        selectProperDrawerMenu(5);
     }
 
     @Override
     public void onTodoFragmentInteraction(String id) {
         getFragmentManager().beginTransaction()
-                .replace(R.id.MFDTailboardContainer, TodoFragment.newInstance(this, "TodoFrag", "TodoFull"))
-                .addToBackStack("Fullscreen Todo")
+                .replace(R.id.MFDTailboardContainer, TodoFragment.newInstance(this, "TodoFrag", "TodoFull"), "Todo")
+                .addToBackStack("Todo")
                 .commit();
+        selectProperDrawerMenu(6);
 
     }
+
     @Override
     public void onTodoItemSelected(int id) {
         Toast.makeText(this, "TOASTED! " + id, Toast.LENGTH_SHORT).show();
