@@ -351,6 +351,7 @@ public class MFDTailboard extends Activity implements
                 .replace(R.id.MFDTailboardContainer, Calculator.newInstance("CalcFrag", "CalcFull"), "Calculator")
                 .addToBackStack("Calculator")
                 .commit();
+        selectProperDrawerMenu(2);
     }
 
     public void onCalendarFragmentInteraction(Uri uri) {
@@ -358,6 +359,7 @@ public class MFDTailboard extends Activity implements
                 .replace(R.id.MFDTailboardContainer, Calendar.newInstance("CalFrag", "CalFull"), "Calendar")
                 .addToBackStack("Calendar")
                 .commit();
+        selectProperDrawerMenu(3);
     }
 
     public void onCallbackFragmentInteraction(Uri uri) {
@@ -365,6 +367,7 @@ public class MFDTailboard extends Activity implements
                 .replace(R.id.MFDTailboardContainer, CallbackSwap.newInstance("CallSwapFrag", "CallSwapFull"), "CallbackSwap")
                 .addToBackStack("CallbackSwap")
                 .commit();
+        selectProperDrawerMenu(4);
     }
 
     public void onAccruedTimeFragmentInteraction(Uri uri) {
@@ -372,6 +375,7 @@ public class MFDTailboard extends Activity implements
                 .replace(R.id.MFDTailboardContainer, AccruedTime.newInstance("AccrFrag", "AccrFull"), "AccruedTime")
                 .addToBackStack("AccruedTime")
                 .commit();
+        selectProperDrawerMenu(5);
     }
 
     @Override
@@ -380,6 +384,7 @@ public class MFDTailboard extends Activity implements
                 .replace(R.id.MFDTailboardContainer, TodoFragment.newInstance(this, "TodoFrag", "TodoFull"), "Todo")
                 .addToBackStack("Todo")
                 .commit();
+        selectProperDrawerMenu(6);
 
     }
 
