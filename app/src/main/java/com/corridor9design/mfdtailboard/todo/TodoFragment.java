@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -96,11 +98,13 @@ public class TodoFragment extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_todo, container, false);
+        final View view = inflater.inflate(R.layout.fragment_todo, container, false);
         if (mParam2 != "TodoFull") {
            view.setOnClickListener(this);
         }
 
+        final SwipeRefreshLayout swipeInsert = (SwipeRefreshLayout) view.findViewById(R.id.swipe_insert);
+        swipeInsert.setEnabled(false);
 
         // Set the adapter
         mListView = (DynamicListView) view.findViewById(R.id.todo_list);
@@ -126,6 +130,37 @@ public class TodoFragment extends Fragment implements
 
         // Set swipe to dismiss functionality
         mListView.enableSimpleSwipeUndo();
+
+        swipeInsert.setOnRefreshListener( new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeInsert.setRefreshing(true);
+                (new Handler()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeInsert.setRefreshing(false);
+                    }
+                }, 1000);
+                mListView.insert(mListView.getLastVisiblePosition() - 1, getString(R.string.todo_newly_added_item, mNewItemCount));
+                mNewItemCount++;
+            }
+        });
+
+        mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                if (firstVisibleItem == 0) {
+                    swipeInsert.setEnabled(true);
+                } else {
+                    swipeInsert.setEnabled(false);
+                }
+            }
+        });
 
         return view;
     }
@@ -273,8 +308,8 @@ public class TodoFragment extends Fragment implements
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            mListView.insert(position, getString(R.string.todo_newly_added_item, mNewItemCount));
-            mNewItemCount++;
+            //mListView.insert(position, getString(R.string.todo_newly_added_item, mNewItemCount));
+            //mNewItemCount++;
         }
     }
 }
