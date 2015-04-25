@@ -78,6 +78,9 @@ public class MFDTailboard extends Activity implements
         // set default setting values. necessary for initial run
         PreferenceManager.setDefaultValues(this, R.xml.settings_layout, false);
 
+        Settings mSettings = new Settings();
+        mSettings.setupInitialValues();
+
         //TODO: Configure screen orientation for tablets, individual fragments, and menu operations
         //setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     }

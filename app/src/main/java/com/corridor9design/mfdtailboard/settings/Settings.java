@@ -5,19 +5,9 @@ package com.corridor9design.mfdtailboard.settings;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.os.Debug;
-import android.preference.CheckBoxPreference;
-import android.preference.EditTextPreference;
-import android.preference.Preference;
-import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.corridor9design.mfdtailboard.MFDTailboard;
 import com.corridor9design.mfdtailboard.R;
@@ -50,12 +40,26 @@ public class Settings extends PreferenceFragment implements
     public static final String ADD_FEDERAL_EXEMPTIONS = "setting_add_federal_exemptions";
     public static final String ADD_STATE_EXEMPTIONS = "setting_add_state_exemptions";
 
+    // Activated fragments
+    public static final String FRAGMENTS_INITIALIZED = "setting_fragments_initialized";
+    public static final String ACCRUED_TIME = "setting_accrued_time_activated";
+    public static final String CALCULATOR = "setting_calculator_activated";
+    public static final String CALENDAR = "setting_calendar_activated";
+    public static final String CALLBACK_SWAP = "setting_callback_swap_activated";
+    public static final String TODO = "setting_todo_activated";
+    static final boolean REINITIALIZE_FRAGMENTS = true;
+    static final boolean ACCRUED_TIME_ACTIVATED = true;
+    static final boolean CALCULATOR_ACTIVATED = true;
+    static final boolean CALENDAR_ACTIVATED = true;
+    static final boolean CALLBACK_SWAP_ACTIVATED = true;
+    static final boolean TODO_ACTIVATED = true;
+
     // DecimalFormation instantiation
     DecimalFormat df = new DecimalFormat("$##0.00");
 
     // setup sharedPreferences & preferences editor
-    //SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(MFDTailboard.getContext());
-    //SharedPreferences.Editor mEditor = mPrefs.edit();
+    SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(MFDTailboard.getContext());
+    SharedPreferences.Editor mEditor = mPrefs.edit();
 
     /**
      * Use this factory method to create a new instance of
@@ -111,5 +115,22 @@ public class Settings extends PreferenceFragment implements
             Log.d(MFDTailboard.TAG, "Preference changed: " + s);
         }
 
+    }
+
+    public void setupInitialValues() {
+        if (mPrefs.getBoolean(FRAGMENTS_INITIALIZED, false)) {
+            mEditor.putBoolean(ACCRUED_TIME, ACCRUED_TIME_ACTIVATED);
+            mEditor.putBoolean(CALCULATOR, CALCULATOR_ACTIVATED);
+            mEditor.putBoolean(CALENDAR, CALENDAR_ACTIVATED);
+            mEditor.putBoolean(CALLBACK_SWAP, CALLBACK_SWAP_ACTIVATED);
+            mEditor.putBoolean(TODO, TODO_ACTIVATED);
+            mEditor.putBoolean(FRAGMENTS_INITIALIZED, REINITIALIZE_FRAGMENTS);
+            mEditor.apply();
+        }
+    }
+
+    public boolean getBoolean(String mPreference) {
+        boolean mValue = mPrefs.getBoolean(mPreference, false);
+        return mValue;
     }
 }

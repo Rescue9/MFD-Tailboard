@@ -3,14 +3,19 @@ package com.corridor9design.mfdtailboard.fragments;
 
 
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.corridor9design.mfdtailboard.MFDTailboard;
 import com.corridor9design.mfdtailboard.R;
 import com.corridor9design.mfdtailboard.accruedTime.AccruedTime;
+import com.corridor9design.mfdtailboard.settings.Settings;
 import com.corridor9design.mfdtailboard.todo.TodoFragment;
 
 /**
@@ -27,6 +32,8 @@ public class AccruedTimeTodoContainer extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    // Shared Preferences
+    private Settings mSettings = new Settings();
 
     public AccruedTimeTodoContainer() {
         // Required empty public constructor
@@ -55,8 +62,13 @@ public class AccruedTimeTodoContainer extends Fragment {
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 
-        ft.add(accrued_time_todo_container.getId(), AccruedTime.newInstance("Accrued Time Fragment", "AccrFrag"));
-        ft.add(accrued_time_todo_container.getId(), TodoFragment.newInstance(getActivity(), "Todo Fragment", "TodoFrag"));
+        if(mSettings.getBoolean(mSettings.ACCRUED_TIME)) {
+            ft.add(accrued_time_todo_container.getId(), AccruedTime.newInstance("Accrued Time Fragment", "AccrFrag"));
+        }
+
+        if (mSettings.getBoolean(mSettings.TODO)) {
+            ft.add(accrued_time_todo_container.getId(), TodoFragment.newInstance(getActivity(), "Todo Fragment", "TodoFrag"));
+        }
 
         ft.commit();
 
